@@ -14,7 +14,7 @@ services:
       - traefik.http.routers.site-qualitcore.rule=Host(`qualitcore.com.br`) || Host(`www.qualitcore.com.br`)
       - traefik.http.routers.site-qualitcore.entrypoints=websecure
       - traefik.http.routers.site-qualitcore.tls=true
-      - traefik.http.routers.site-qualitcore.tls.certresolver=leresolver
+      - traefik.http.routers.site-qualitcore.tls.certresolver=le
 
       # Router HTTP (redirect para HTTPS)
       - traefik.http.routers.site-qualitcore-http.rule=Host(`qualitcore.com.br`) || Host(`www.qualitcore.com.br`)
