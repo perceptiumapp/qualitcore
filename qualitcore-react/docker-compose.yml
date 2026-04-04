@@ -1,0 +1,32 @@
+services:
+  site-qualitcore:
+    build: .
+    container_name: site-qualitcore
+    restart: unless-stopped
+    networks:
+      - proxy
+    labels:
+      # Habilitar Traefik
+      - traefik.enable=true
+      - traefik.docker.network=proxy
+
+      # Router HTTPS (principal)
+      - traefik.http.routers.site-qualitcore.rule=Host(`qualitcore.com.br`) || Host(`www.qualitcore.com.br`)
+      - traefik.http.routers.site-qualitcore.entrypoints=websecure
+      - traefik.http.routers.site-qualitcore.tls=true
+      - traefik.http.routers.site-qualitcore.tls.certresolver=leresolver
+
+      # Router HTTP (redirect para HTTPS)
+      - traefik.http.routers.site-qualitcore-http.rule=Host(`qualitcore.com.br`) || Host(`www.qualitcore.com.br`)
+      - traefik.http.routers.site-qualitcore-http.entrypoints=web
+      - traefik.http.routers.site-qualitcore-http.middlewares=site-qualitcore-https-redirect
+
+      # Middleware de redirect
+      - traefik.http.middlewares.site-qualitcore-https-redirect.redirectscheme.scheme=https
+
+      # Serviço (porta interna do nginx)
+      - traefik.http.services.site-qualitcore.loadbalancer.server.port=80
+
+networks:
+  proxy:
+    external: true
