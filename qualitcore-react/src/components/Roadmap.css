@@ -1,0 +1,253 @@
+/* ===== Roadmap Section ===== */
+.roadmap-section {
+  background: var(--surface);
+}
+
+.waves-container {
+  position: relative;
+  margin-top: 60px;
+}
+
+/* Timeline line - hidden on desktop, shown on mobile */
+.waves-timeline {
+  display: none;
+}
+
+.waves-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.wave-card {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1.5px solid var(--border);
+  background: white;
+  transition: all 0.3s;
+}
+
+.wave-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 48px rgba(1, 113, 123, 0.12);
+}
+
+.wave-header {
+  padding: 28px;
+  background: linear-gradient(135deg, var(--teal-deep), var(--teal-main));
+}
+
+.wave-header.wave2 {
+  background: linear-gradient(135deg, var(--navy-deep), var(--navy));
+}
+
+.wave-header.wave3 {
+  background: linear-gradient(135deg, #2E2E33, var(--navy-deep));
+}
+
+.wave-label {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.wave-name {
+  font-size: 22px;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.wave-timeline {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.wave-body {
+  padding: 28px;
+}
+
+.wave-module {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  color: var(--gray-dark);
+}
+
+.wave-module:last-child {
+  border-bottom: none;
+}
+
+.wave-module::before {
+  content: '\2713';
+  font-weight: 700;
+  color: var(--teal-main);
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+/* Expand / collapse button */
+.wave-expand-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 12px;
+  padding: 6px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--teal-main);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.wave-expand-btn:hover {
+  background: var(--teal-pale);
+  border-color: var(--teal-main);
+}
+
+/* ===== Slide-in animations ===== */
+.wave-card--from-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.wave-card--from-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.wave-card--visible.wave-card--from-left,
+.wave-card--visible.wave-card--from-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ===== Tablet ===== */
+@media (max-width: 1024px) {
+  .waves-cards {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 640px) {
+  .waves-container {
+    display: flex;
+    gap: 0;
+  }
+
+  /* Vertical progress line on the left */
+  .waves-timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 32px;
+    flex-shrink: 0;
+    padding-top: 36px;
+  }
+
+  /* The vertical line */
+  .waves-timeline::before {
+    content: '';
+    position: absolute;
+    top: 36px;
+    bottom: 36px;
+    left: 50%;
+    width: 2px;
+    background: linear-gradient(
+      180deg,
+      var(--teal-main) 0%,
+      var(--navy) 50%,
+      var(--gray-dark) 100%
+    );
+    transform: translateX(-50%);
+    border-radius: 1px;
+  }
+
+  /* Timeline dots */
+  .waves-timeline-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--teal-main);
+    border: 2px solid var(--surface);
+    box-shadow: 0 0 0 3px rgba(1, 113, 123, 0.2);
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    margin-top: 0;
+    animation: timelinePulse 2.5s ease-in-out infinite;
+  }
+
+  .waves-timeline-dot:nth-child(2) {
+    background: var(--navy);
+    box-shadow: 0 0 0 3px rgba(46, 58, 85, 0.2);
+    animation-delay: 0.4s;
+  }
+
+  .waves-timeline-dot:nth-child(3) {
+    background: var(--gray-dark);
+    box-shadow: 0 0 0 3px rgba(46, 46, 51, 0.2);
+    animation-delay: 0.8s;
+  }
+
+  @keyframes timelinePulse {
+    0%, 100% {
+      box-shadow: 0 0 0 3px rgba(1, 113, 123, 0.2);
+    }
+    50% {
+      box-shadow: 0 0 0 6px rgba(1, 113, 123, 0.12), 0 0 12px rgba(1, 113, 123, 0.15);
+    }
+  }
+
+  .waves-cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .wave-card {
+    border-radius: 14px;
+  }
+
+  .wave-header {
+    padding: 18px 20px;
+  }
+
+  .wave-name {
+    font-size: 18px;
+  }
+
+  .wave-label {
+    font-size: 10px;
+    margin-bottom: 4px;
+  }
+
+  .wave-timeline {
+    font-size: 12px;
+  }
+
+  .wave-body {
+    padding: 20px;
+  }
+
+  .wave-module {
+    font-size: 13px;
+    padding: 7px 0;
+  }
+}

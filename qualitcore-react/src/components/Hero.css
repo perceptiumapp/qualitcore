@@ -1,0 +1,284 @@
+/* ============================================================
+   Hero Component — Mobile-Optimized Styles
+   Uses CSS variables from index.css (:root)
+   ============================================================ */
+
+/* ---- Animated background gradient ---- */
+.hero-bg-gradient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 50% 50% at 20% 80%, rgba(1, 113, 123, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(46, 58, 85, 0.06) 0%, transparent 70%);
+  background-size: 200% 200%;
+  animation: heroGradientShift 12s ease-in-out infinite alternate;
+}
+
+@keyframes heroGradientShift {
+  0% {
+    background-position: 0% 0%;
+    opacity: 0.6;
+  }
+  50% {
+    background-position: 100% 100%;
+    opacity: 1;
+  }
+  100% {
+    background-position: 50% 0%;
+    opacity: 0.7;
+  }
+}
+
+/* Ensure hero children sit above the animated bg */
+#hero > *:not(.hero-bg-gradient) {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- Mobile mini-dashboard (hidden on desktop) ---- */
+.hero-mini-dashboard {
+  display: none; /* shown via media query on mobile */
+}
+
+/* ============================================================
+   Responsive: Tablet & below (max-width: 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+  /* --- Layout --- */
+  #hero {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 100px 5% 60px;
+    min-height: auto;
+    text-align: center;
+  }
+
+  #hero::before {
+    width: 300px;
+    height: 300px;
+    top: -10%;
+    right: -15%;
+  }
+
+  /* --- Hero content centering --- */
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-desc {
+    max-width: 100%;
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+
+  /* --- Badge: smaller on mobile --- */
+  .hero-badge {
+    font-size: 10px;
+    padding: 5px 12px;
+    margin-bottom: 20px;
+    letter-spacing: 0.3px;
+  }
+
+  .hero-badge::before {
+    width: 6px;
+    height: 6px;
+  }
+
+  /* --- Title: smaller clamp for mobile --- */
+  .hero-title {
+    font-size: clamp(26px, 7vw, 40px);
+    margin-bottom: 18px;
+  }
+
+  /* --- Actions: centered --- */
+  .hero-actions {
+    justify-content: center;
+    margin-bottom: 36px;
+  }
+
+  /* --- Stats: wrap with equal spacing --- */
+  .hero-stats {
+    gap: 24px;
+    padding-top: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-stats > div {
+    flex: 0 0 auto;
+    min-width: 80px;
+  }
+
+  .hero-stat-num {
+    font-size: 24px;
+  }
+
+  .hero-stat-label {
+    font-size: 11px;
+  }
+
+  /* --- Hide desktop visual & floating badges --- */
+  .hero-visual {
+    display: none;
+  }
+
+  .hero-float-badge {
+    display: none;
+  }
+
+  /* --- Show mobile mini-dashboard --- */
+  .hero-mini-dashboard {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 4px 0 12px;
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .hero-mini-dashboard::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mini-dash-card {
+    flex: 0 0 auto;
+    min-width: 120px;
+    scroll-snap-align: start;
+    background: var(--navy-deep);
+    border-radius: 14px;
+    padding: 16px 18px;
+    text-align: center;
+    box-shadow:
+      0 8px 24px rgba(14, 55, 79, 0.2),
+      0 0 0 1px rgba(255, 255, 255, 0.06);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mini-dash-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--teal-main), var(--teal-light), var(--teal-main));
+    background-size: 200%;
+    animation: shimmer 3s linear infinite;
+  }
+
+  .mini-dash-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 8px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .mini-dash-icon.good {
+    background: rgba(79, 170, 172, 0.15);
+    color: var(--teal-light);
+  }
+
+  .mini-dash-icon.warn {
+    background: rgba(255, 204, 41, 0.15);
+    color: var(--yellow);
+  }
+
+  .mini-dash-value {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: white;
+    line-height: 1.2;
+  }
+
+  .mini-dash-value.good {
+    color: var(--teal-light);
+  }
+
+  .mini-dash-value.warn {
+    color: var(--yellow);
+  }
+
+  .mini-dash-label {
+    font-size: 10px;
+    color: rgba(203, 233, 231, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-top: 4px;
+  }
+}
+
+/* ============================================================
+   Responsive: Very small screens (max-width: 400px)
+   ============================================================ */
+@media (max-width: 400px) {
+  #hero {
+    padding: 90px 4% 48px;
+  }
+
+  .hero-title {
+    font-size: clamp(22px, 7vw, 32px);
+  }
+
+  .hero-desc {
+    font-size: 14px;
+  }
+
+  /* --- Buttons stack vertically --- */
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary {
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* --- Stats: tighter on very small --- */
+  .hero-stats {
+    gap: 16px;
+  }
+
+  .hero-stat-num {
+    font-size: 20px;
+  }
+
+  .hero-stat-label {
+    font-size: 10px;
+  }
+
+  /* --- Mini dashboard cards shrink slightly --- */
+  .mini-dash-card {
+    min-width: 100px;
+    padding: 12px 14px;
+  }
+
+  .mini-dash-value {
+    font-size: 18px;
+  }
+}
+
+/* ============================================================
+   Shimmer keyframe (reused from index.css, safe to re-declare)
+   ============================================================ */
+@keyframes shimmer {
+  to {
+    background-position: 200% 0;
+  }
+}

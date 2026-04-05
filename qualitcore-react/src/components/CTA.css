@@ -1,0 +1,155 @@
+/* ── CTA Section ── */
+
+.cta-section {
+  background: radial-gradient(
+      ellipse 80% 80% at 50% 50%,
+      rgba(1, 113, 123, 0.08) 0%,
+      transparent 70%
+    ),
+    var(--surface);
+  text-align: center;
+  padding: 120px 5%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Particle canvas ── */
+.cta-particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cta-section .cta-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-section .cta-eyebrow {
+  display: inline-block;
+  background: var(--teal-pale);
+  color: var(--teal-deep);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-bottom: 28px;
+}
+
+.cta-section .cta-title {
+  font-size: clamp(28px, 4vw, 50px);
+  font-weight: 800;
+  color: var(--navy-deep);
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.cta-section .cta-desc {
+  font-size: 17px;
+  color: var(--gray-dark);
+  margin-bottom: 44px;
+  line-height: 1.7;
+}
+
+.cta-section .cta-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Animated glow border on primary CTA button ── */
+.cta-btn-primary {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 13px;
+  background: linear-gradient(
+    135deg,
+    var(--teal-light),
+    var(--teal-main),
+    var(--teal-deep),
+    var(--teal-light)
+  );
+  background-size: 300% 300%;
+  animation: cta-glow-rotate 3s ease infinite;
+  z-index: -1;
+  opacity: 0.6;
+  filter: blur(4px);
+}
+
+@keyframes cta-glow-rotate {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ── Responsive: 1024px ── */
+@media (max-width: 1024px) {
+  .cta-section {
+    padding: 100px 5%;
+  }
+}
+
+/* ── Responsive: mobile ── */
+@media (max-width: 640px) {
+  .cta-section {
+    /* Full-bleed with dramatic gradient */
+    padding: 72px 0;
+    margin-left: 0;
+    margin-right: 0;
+    background:
+      radial-gradient(
+        ellipse 100% 80% at 50% 40%,
+        rgba(1, 113, 123, 0.14) 0%,
+        transparent 70%
+      ),
+      linear-gradient(
+        180deg,
+        var(--surface) 0%,
+        rgba(203, 233, 231, 0.3) 50%,
+        var(--surface) 100%
+      );
+  }
+
+  .cta-section .cta-inner {
+    padding: 0 4%;
+  }
+
+  .cta-section .cta-eyebrow {
+    font-size: 11px;
+    padding: 5px 14px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .cta-section .cta-desc {
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+
+  /* Buttons stack vertically full width */
+  .cta-section .cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .cta-section .cta-actions a {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,202 @@
+/* ==========================================================================
+   Modules Component Styles
+   Desktop: 3-column grid (inherits from index.css)
+   Mobile (<=768px): Horizontal swipeable carousel with glass-morphism
+   ========================================================================== */
+
+/* ── Section wrapper ─────────────────────────────────────────────────────── */
+.modules-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Dot-grid particle background (mobile only) ─────────────────────────── */
+.modules-dot-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    radial-gradient(circle, rgba(1, 113, 123, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 80%);
+}
+
+/* ── Keep all content above the dot grid ─────────────────────────────────── */
+.modules-section > *:not(.modules-dot-grid) {
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   MOBILE CAROUSEL  (max-width: 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+
+  /* Header becomes single column */
+  .modules-section .modules-header {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  /* ── Carousel track ──────────────────────────────────────────────────── */
+  .modules-carousel {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 8px 4% 24px;
+    margin: 0 -4%;
+
+    /* Hide scrollbar across browsers */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .modules-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* ── Individual mobile card ──────────────────────────────────────────── */
+  .module-card--mobile {
+    flex: 0 0 82%;
+    scroll-snap-align: start;
+    min-width: 0;
+
+    /* Glass-morphism */
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 20px;
+    padding: 24px 20px;
+    box-shadow:
+      0 4px 24px rgba(1, 113, 123, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+
+    /* Gradient left accent border */
+    border-left: 3px solid transparent;
+    border-image: var(--card-gradient) 1;
+    border-image-slice: 1;
+
+    /* Override desktop hover transform */
+    transform: none !important;
+    transition: box-shadow 0.3s ease;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .module-card--mobile::before {
+    /* Disable the desktop top-bar animation */
+    display: none;
+  }
+
+  /* ── Icon with glow ──────────────────────────────────────────────────── */
+  .mod-icon--mobile {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--teal-pale), rgba(203, 233, 231, 0.5));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 16px;
+    box-shadow:
+      0 0 20px rgba(1, 113, 123, 0.18),
+      0 0 40px rgba(1, 113, 123, 0.06);
+    position: relative;
+  }
+
+  .mod-icon--mobile::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 18px;
+    background: radial-gradient(circle, rgba(1, 113, 123, 0.12), transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* ── Horizontally scrollable tags ────────────────────────────────────── */
+  .mod-tags--mobile {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 2px;
+  }
+  .mod-tags--mobile::-webkit-scrollbar {
+    display: none;
+  }
+  .mod-tags--mobile .mod-tag {
+    flex-shrink: 0;
+  }
+
+  /* ── Dot indicators ──────────────────────────────────────────────────── */
+  .modules-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 0 0;
+    flex-wrap: wrap;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .modules-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    background: var(--gray-light);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .modules-dot--active {
+    width: 22px;
+    border-radius: 4px;
+    background: var(--teal-main);
+    box-shadow: 0 0 8px rgba(1, 113, 123, 0.35);
+  }
+
+  /* ── Touch-friendly spacing ──────────────────────────────────────────── */
+  .modules-section .mod-name {
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+
+  .modules-section .mod-desc {
+    font-size: 14px;
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+}
+
+/* ==========================================================================
+   DESKTOP  (>768px) — keep original 3-column grid exactly as-is
+   ========================================================================== */
+@media (min-width: 769px) {
+
+  /* Hide mobile-only elements */
+  .modules-dot-grid,
+  .modules-dots {
+    display: none;
+  }
+
+  /* Carousel container should not appear on desktop */
+  .modules-carousel {
+    display: none;
+  }
+
+  /* Grid is already styled in index.css — no overrides needed */
+}

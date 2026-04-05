@@ -1,0 +1,146 @@
+/* ===== Certs Section ===== */
+#certs {
+  padding: 40px 5%;
+  background: var(--teal-pale);
+  border-top: 1px solid rgba(1, 113, 123, 0.15);
+  border-bottom: 1px solid rgba(1, 113, 123, 0.15);
+  position: relative;
+}
+
+.certs-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 48px;
+}
+
+.cert-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.cert-item:hover {
+  opacity: 1;
+}
+
+.cert-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--teal-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.cert-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy-deep);
+}
+
+.cert-sub {
+  font-size: 11px;
+  color: var(--gray-dark);
+}
+
+/* ===== Mobile: Horizontal scroll pills ===== */
+@media (max-width: 768px) {
+  #certs {
+    padding: 24px 0;
+    overflow: hidden;
+  }
+
+  /* Gradient edge hints */
+  #certs::before,
+  #certs::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 48px;
+    z-index: 2;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+  #certs::before {
+    left: 0;
+    background: linear-gradient(to right, var(--teal-pale) 20%, transparent);
+  }
+  #certs::after {
+    right: 0;
+    background: linear-gradient(to left, var(--teal-pale) 20%, transparent);
+  }
+
+  /* Hide left gradient when at start */
+  #certs.scroll-start::before {
+    opacity: 0;
+  }
+  /* Hide right gradient when at end */
+  #certs.scroll-end::after {
+    opacity: 0;
+  }
+
+  .certs-inner {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 12px;
+    justify-content: flex-start;
+    padding: 0 20px;
+
+    /* Horizontal scroll */
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+
+    /* Snap scrolling */
+    scroll-snap-type: x mandatory;
+    scroll-padding: 20px;
+
+    /* Hide scrollbar */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .certs-inner::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cert-item {
+    flex-shrink: 0;
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(1, 113, 123, 0.12);
+    border-radius: 100px;
+    padding: 8px 16px 8px 8px;
+    gap: 8px;
+    scroll-snap-align: start;
+    white-space: nowrap;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .cert-item:active {
+    transform: scale(0.97);
+  }
+
+  .cert-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 14px;
+  }
+
+  .cert-text {
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+  .cert-sub {
+    font-size: 10px;
+    line-height: 1.2;
+  }
+}

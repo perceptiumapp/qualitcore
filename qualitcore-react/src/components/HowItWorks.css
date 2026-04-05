@@ -1,0 +1,309 @@
+/* ============================================
+   HowItWorks Component
+   Desktop: horizontal layout (matches original)
+   Mobile:  vertical timeline with glass-morphism
+   ============================================ */
+
+/* --- Section --- */
+.hiw-section {
+  background: var(--surface);
+}
+
+/* --- Desktop: horizontal steps (original layout) --- */
+.hiw-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: 60px;
+  position: relative;
+}
+
+/* Horizontal connector line (desktop) */
+.hiw-steps::before {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: calc(12.5% + 16px);
+  right: calc(12.5% + 16px);
+  height: 2px;
+  background: linear-gradient(90deg, var(--teal-main), var(--teal-light));
+  opacity: 0.3;
+}
+
+/* Hide vertical timeline track on desktop */
+.hiw-timeline-track {
+  display: none;
+}
+
+/* --- Step card (desktop) --- */
+.hiw-step {
+  padding: 0 24px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition-delay: calc(var(--step-index) * 0.1s);
+}
+
+.hiw-step--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Step number circle (desktop) --- */
+.hiw-step-num-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.hiw-step-num {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid var(--teal-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Sora', sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  color: var(--teal-main);
+  box-shadow: 0 4px 20px rgba(1, 113, 123, 0.12);
+  position: relative;
+  z-index: 1;
+}
+
+/* Pulse dot: hidden on desktop */
+.hiw-pulse {
+  display: none;
+}
+
+/* --- Step content (desktop) --- */
+.hiw-step-content {
+  text-align: center;
+}
+
+.hiw-step-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy-deep);
+  margin-bottom: 10px;
+}
+
+.hiw-step-desc {
+  font-size: 14px;
+  color: var(--gray-dark);
+  line-height: 1.6;
+}
+
+
+/* ============================================
+   TABLET: 2-column grid
+   ============================================ */
+@media (max-width: 1024px) {
+  .hiw-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hiw-steps::before {
+    display: none;
+  }
+  .hiw-step {
+    margin-bottom: 32px;
+  }
+}
+
+
+/* ============================================
+   MOBILE: Vertical timeline layout
+   ============================================ */
+@media (max-width: 768px) {
+  .hiw-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 48px;
+    position: relative;
+    padding-left: 0;
+  }
+
+  /* Remove the horizontal desktop line */
+  .hiw-steps::before {
+    display: none;
+  }
+
+  /* --- Vertical timeline track --- */
+  .hiw-timeline-track {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 24px;
+    bottom: 0;
+    width: 3px;
+    background: rgba(1, 113, 123, 0.1);
+    border-radius: 2px;
+    z-index: 0;
+  }
+
+  .hiw-timeline-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 2px;
+    background: linear-gradient(
+      180deg,
+      var(--teal-main) 0%,
+      var(--teal-light) 60%,
+      var(--teal-pale) 100%
+    );
+    height: calc(var(--line-progress, 0) * 100%);
+    transition: height 0.15s ease-out;
+    box-shadow: 0 0 8px rgba(1, 113, 123, 0.4);
+  }
+
+  /* --- Step card (mobile) --- */
+  .hiw-step {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    padding: 0 0 32px 0;
+    gap: 16px;
+
+    /* Stagger entrance */
+    opacity: 0;
+    transform: translateX(-16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition-delay: calc(var(--step-index) * 0.12s);
+  }
+
+  .hiw-step--visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* --- Step number (mobile: smaller circle on the left) --- */
+  .hiw-step-num-wrap {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 0;
+    width: 48px;
+    z-index: 2;
+  }
+
+  .hiw-step-num {
+    width: 48px;
+    height: 48px;
+    font-size: 16px;
+    border: 2px solid var(--teal-light);
+    background: white;
+    box-shadow:
+      0 2px 12px rgba(1, 113, 123, 0.15),
+      0 0 0 4px rgba(1, 113, 123, 0.06);
+    transition: box-shadow 0.4s ease, border-color 0.4s ease;
+  }
+
+  /* Glow effect on visible steps */
+  .hiw-step--visible .hiw-step-num {
+    border-color: var(--teal-main);
+    box-shadow:
+      0 2px 12px rgba(1, 113, 123, 0.15),
+      0 0 20px rgba(1, 113, 123, 0.2),
+      0 0 0 4px rgba(1, 113, 123, 0.1);
+  }
+
+  /* Pulsing dot on each step number */
+  .hiw-pulse {
+    display: block;
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--teal-main);
+    z-index: 3;
+  }
+
+  .hiw-pulse::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: rgba(1, 113, 123, 0.4);
+    animation: hiw-pulse-ring 2s ease-out infinite;
+  }
+
+  .hiw-pulse::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border-radius: 50%;
+    background: white;
+    animation: hiw-pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes hiw-pulse-ring {
+    0% {
+      transform: scale(1);
+      opacity: 0.6;
+    }
+    70% {
+      transform: scale(1.8);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1.8);
+      opacity: 0;
+    }
+  }
+
+  @keyframes hiw-pulse-dot {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+
+  /* --- Step content card (mobile: glass-morphism) --- */
+  .hiw-step-content {
+    text-align: left;
+    flex: 1;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(1, 113, 123, 0.12);
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow:
+      0 4px 24px rgba(1, 113, 123, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    transition: box-shadow 0.4s ease, border-color 0.4s ease;
+  }
+
+  /* Glow on visible card */
+  .hiw-step--visible .hiw-step-content {
+    border-color: rgba(1, 113, 123, 0.2);
+    box-shadow:
+      0 4px 24px rgba(1, 113, 123, 0.1),
+      0 0 32px rgba(1, 113, 123, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+
+  .hiw-step-title {
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+
+  .hiw-step-desc {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+}

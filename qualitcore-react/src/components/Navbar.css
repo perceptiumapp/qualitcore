@@ -1,0 +1,348 @@
+/* =============================================
+   Navbar Mobile Styles
+   Breakpoint: 768px
+   ============================================= */
+
+/* --- Hamburger Button --- */
+.hamburger {
+  display: none;
+  position: relative;
+  z-index: 210;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.hamburger:hover {
+  background: rgba(1, 113, 123, 0.08);
+}
+
+.hamburger__line {
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin: 0 auto;
+  background: var(--navy-deep);
+  border-radius: 2px;
+  transition: transform 0.35s cubic-bezier(0.77, 0, 0.175, 1),
+              opacity 0.25s ease,
+              background-color 0.25s ease;
+}
+
+.hamburger__line--1 {
+  transform: translateY(-6px);
+}
+
+.hamburger__line--2 {
+  transform: translateY(0);
+}
+
+.hamburger__line--3 {
+  transform: translateY(6px);
+}
+
+/* Animated X state */
+.hamburger--active .hamburger__line--1 {
+  transform: translateY(0) rotate(45deg);
+  background: var(--teal-main);
+}
+
+.hamburger--active .hamburger__line--2 {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger--active .hamburger__line--3 {
+  transform: translateY(-2px) rotate(-45deg);
+  background: var(--teal-main);
+}
+
+/* --- Mobile Overlay (blur backdrop) --- */
+.mobile-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 190;
+  background: rgba(6, 6, 6, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.mobile-overlay--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* --- Mobile Drawer --- */
+.mobile-drawer {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+  width: 85%;
+  max-width: 380px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.97) 0%,
+    rgba(248, 250, 250, 0.99) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-left: 1px solid var(--border);
+  box-shadow: -8px 0 60px rgba(1, 113, 123, 0.12),
+              -2px 0 20px rgba(1, 113, 123, 0.06);
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+  overflow-y: auto;
+}
+
+.mobile-drawer--open {
+  transform: translateX(0);
+}
+
+.mobile-drawer__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
+  padding: 100px 32px 40px;
+  gap: 40px;
+}
+
+/* --- Mobile Nav Links --- */
+.mobile-nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobile-nav-links li {
+  opacity: 0;
+  animation: mobileNavFadeIn 0.4s ease forwards;
+}
+
+.mobile-drawer--open .mobile-nav-links li {
+  opacity: 0;
+  animation: mobileNavFadeIn 0.4s ease forwards;
+}
+
+.mobile-nav-links a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  text-decoration: none;
+  font-family: 'Sora', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--navy-deep);
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.mobile-nav-links a:hover,
+.mobile-nav-links a:active {
+  background: rgba(1, 113, 123, 0.06);
+  color: var(--teal-main);
+  transform: translateX(4px);
+}
+
+.mobile-nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) scaleY(0);
+  width: 3px;
+  height: 60%;
+  background: var(--teal-main);
+  border-radius: 0 3px 3px 0;
+  transition: transform 0.2s ease;
+}
+
+.mobile-nav-links a:hover::after,
+.mobile-nav-links a:active::after {
+  transform: translateY(-50%) scaleY(1);
+}
+
+.mobile-nav-icon {
+  font-size: 8px;
+  color: var(--teal-light);
+  opacity: 0.6;
+}
+
+/* --- Mobile CTA --- */
+.mobile-drawer__cta-wrapper {
+  padding: 0 4px;
+  opacity: 0;
+  animation: mobileNavFadeIn 0.4s ease 0.3s forwards;
+}
+
+.mobile-drawer__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 18px 24px;
+  background: linear-gradient(135deg, var(--teal-deep), var(--teal-main));
+  color: white;
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 14px;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 30px rgba(1, 113, 123, 0.3),
+              0 0 0 0 rgba(1, 113, 123, 0),
+              inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile-drawer__cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    transparent 50%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.mobile-drawer__cta:hover,
+.mobile-drawer__cta:active {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px rgba(1, 113, 123, 0.4),
+              0 0 20px rgba(1, 113, 123, 0.15);
+}
+
+.mobile-drawer__cta-arrow {
+  font-size: 18px;
+  transition: transform 0.2s ease;
+}
+
+.mobile-drawer__cta:hover .mobile-drawer__cta-arrow {
+  transform: translateX(4px);
+}
+
+/* Glow pulse animation on CTA */
+.mobile-drawer--open .mobile-drawer__cta {
+  animation: ctaGlowPulse 3s ease-in-out 1s infinite;
+}
+
+/* --- Drawer Footer --- */
+.mobile-drawer__footer {
+  margin-top: auto;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  opacity: 0;
+  animation: mobileNavFadeIn 0.4s ease 0.35s forwards;
+}
+
+.mobile-drawer__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Sora', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--navy-deep);
+  margin-bottom: 6px;
+}
+
+.mobile-drawer__tagline {
+  font-size: 12px;
+  color: var(--gray-mid);
+  letter-spacing: 0.3px;
+}
+
+/* --- Animations --- */
+@keyframes mobileNavFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes ctaGlowPulse {
+  0%, 100% {
+    box-shadow: 0 6px 30px rgba(1, 113, 123, 0.3),
+                0 0 0 0 rgba(1, 113, 123, 0),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+  50% {
+    box-shadow: 0 6px 30px rgba(1, 113, 123, 0.3),
+                0 0 30px rgba(1, 113, 123, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* =============================================
+   Mobile Responsive (< 768px)
+   ============================================= */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav-links {
+    display: none !important;
+  }
+
+  .nav-cta-desktop {
+    display: none !important;
+  }
+
+  .mobile-overlay {
+    display: block;
+  }
+
+  .mobile-drawer {
+    display: block;
+  }
+
+  #main-nav {
+    height: 64px;
+    padding: 0 20px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 380px) {
+  .mobile-drawer {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .mobile-drawer__content {
+    padding: 90px 24px 32px;
+  }
+
+  .mobile-nav-links a {
+    font-size: 16px;
+    padding: 14px 14px;
+  }
+}

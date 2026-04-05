@@ -1,0 +1,233 @@
+/* ── Highlight / Quote Section ── */
+
+.highlight-section {
+  background: var(--navy-deep);
+  color: white;
+  text-align: center;
+  padding: 100px 5%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Animated floating quotation marks ── */
+.hl-deco-quote {
+  position: absolute;
+  font-family: 'Sora', sans-serif;
+  font-weight: 800;
+  color: rgba(79, 170, 172, 0.08);
+  pointer-events: none;
+  line-height: 1;
+  user-select: none;
+  font-size: clamp(120px, 18vw, 260px);
+}
+
+.hl-deco-open {
+  top: -10px;
+  left: 4%;
+  animation: hl-float-left 6s ease-in-out infinite;
+}
+
+.hl-deco-close {
+  bottom: -30px;
+  right: 4%;
+  animation: hl-float-right 6s ease-in-out infinite;
+}
+
+@keyframes hl-float-left {
+  0%, 100% { transform: translate(0, 0) rotate(-6deg); }
+  50%      { transform: translate(8px, -14px) rotate(-2deg); }
+}
+
+@keyframes hl-float-right {
+  0%, 100% { transform: translate(0, 0) rotate(6deg); }
+  50%      { transform: translate(-8px, 12px) rotate(2deg); }
+}
+
+/* ── ONA badge ── */
+.ona-badge-large {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(1, 113, 123, 0.25);
+  border: 1px solid rgba(79, 170, 172, 0.4);
+  border-radius: 12px;
+  padding: 14px 24px;
+  margin-bottom: 48px;
+  font-size: 15px;
+  color: var(--teal-light);
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ona-badge-large span {
+  font-family: 'Sora', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  color: white;
+}
+
+/* ── Quote text ── */
+.highlight-quote {
+  max-width: 780px;
+  margin: 0 auto 40px;
+  font-size: clamp(20px, 2.5vw, 32px);
+  font-family: 'Sora', sans-serif;
+  font-weight: 600;
+  line-height: 1.4;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+/* Gradient text animation on highlighted words */
+.highlight-quote .hl {
+  background: linear-gradient(
+    90deg,
+    var(--teal-light),
+    var(--teal-pale),
+    var(--teal-light)
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: hl-gradient-shift 4s linear infinite;
+}
+
+@keyframes hl-gradient-shift {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ── Source / Attribution ── */
+.highlight-source {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.hl-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--teal-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: white;
+  flex-shrink: 0;
+}
+
+.hl-source-info {
+  text-align: left;
+}
+
+.hl-name {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.hl-role {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* ── Entrance animation ── */
+.highlight-section .highlight-quote,
+.highlight-section .ona-badge-large,
+.highlight-section .highlight-source {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.highlight-section.hl-visible .ona-badge-large {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+
+.highlight-section.hl-visible .highlight-quote {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.15s;
+}
+
+.highlight-section.hl-visible .highlight-source {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+/* ── Mobile ── */
+@media (max-width: 1024px) {
+  .highlight-section {
+    padding: 80px 5%;
+  }
+
+  .hl-deco-quote {
+    font-size: clamp(90px, 14vw, 160px);
+    opacity: 0.7;
+  }
+}
+
+@media (max-width: 640px) {
+  .highlight-section {
+    padding: 64px 4%;
+  }
+
+  .highlight-quote {
+    font-size: clamp(17px, 4.5vw, 22px);
+    margin-bottom: 32px;
+  }
+
+  .ona-badge-large {
+    font-size: 13px;
+    padding: 10px 16px;
+    margin-bottom: 32px;
+    gap: 6px;
+  }
+
+  .ona-badge-large span {
+    font-size: 15px;
+  }
+
+  .hl-deco-quote {
+    font-size: 90px;
+  }
+
+  .hl-deco-open {
+    top: -6px;
+    left: 2%;
+  }
+
+  .hl-deco-close {
+    bottom: -16px;
+    right: 2%;
+  }
+
+  /* Stack avatar + info vertically on very small screens */
+  .highlight-source {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hl-source-info {
+    text-align: center;
+  }
+}
+
+@media (max-width: 380px) {
+  .highlight-quote {
+    font-size: 16px;
+  }
+}
