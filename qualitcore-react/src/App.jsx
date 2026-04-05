@@ -46,7 +46,7 @@ function App() {
       <Stats />
       <Roadmap />
       <Highlight />
-      <TechStack />
+
       <CTA />
       <Footer />
     </>
