@@ -44,45 +44,47 @@ function Navbar() {
   }, [])
 
   return (
-    <nav id="main-nav">
-      <a href="#" className="nav-logo">
-        <div className="nav-logo-mark">QC</div>
-        <div className="nav-logo-text">Qualit<span>Core</span></div>
-      </a>
+    <>
+      <nav id="main-nav">
+        <a href="#" className="nav-logo">
+          <div className="nav-logo-mark">QC</div>
+          <div className="nav-logo-text">Qualit<span>Core</span></div>
+        </a>
 
-      {/* Desktop nav links (unchanged) */}
-      <ul className="nav-links">
-        <li><a href="#modules">Módulos</a></li>
-        <li><a href="#features">Funcionalidades</a></li>
-        <li><a href="#regulatory">Regulatório</a></li>
-        <li><a href="#roadmap">Roadmap</a></li>
-        <li><a href="#tech">Tecnologia</a></li>
-      </ul>
+        {/* Desktop nav links */}
+        <ul className="nav-links">
+          <li><a href="#modules">Módulos</a></li>
+          <li><a href="#features">Funcionalidades</a></li>
+          <li><a href="#regulatory">Regulatório</a></li>
+          <li><a href="#roadmap">Roadmap</a></li>
+          <li><a href="#tech">Tecnologia</a></li>
+        </ul>
 
-      {/* Desktop CTA (unchanged) */}
-      <a href="#cta" className="nav-cta nav-cta-desktop">Solicitar demonstração</a>
+        {/* Desktop CTA */}
+        <a href="#cta" className="nav-cta nav-cta-desktop">Solicitar demonstração</a>
 
-      {/* Hamburger button (mobile only) */}
-      <button
-        className={`hamburger${menuOpen ? ' hamburger--active' : ''}`}
-        onClick={toggleMenu}
-        aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
-        aria-expanded={menuOpen}
-        type="button"
-      >
-        <span className="hamburger__line hamburger__line--1"></span>
-        <span className="hamburger__line hamburger__line--2"></span>
-        <span className="hamburger__line hamburger__line--3"></span>
-      </button>
+        {/* Hamburger button (mobile only) */}
+        <button
+          className={`hamburger${menuOpen ? ' hamburger--active' : ''}`}
+          onClick={toggleMenu}
+          aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
+          aria-expanded={menuOpen}
+          type="button"
+        >
+          <span className="hamburger__line hamburger__line--1"></span>
+          <span className="hamburger__line hamburger__line--2"></span>
+          <span className="hamburger__line hamburger__line--3"></span>
+        </button>
+      </nav>
 
-      {/* Mobile overlay backdrop */}
+      {/* Mobile overlay backdrop - OUTSIDE nav */}
       <div
         className={`mobile-overlay${menuOpen ? ' mobile-overlay--visible' : ''}`}
         onClick={closeMenu}
         aria-hidden="true"
       />
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer - OUTSIDE nav */}
       <div className={`mobile-drawer${menuOpen ? ' mobile-drawer--open' : ''}`}>
         <div className="mobile-drawer__content">
           <ul className="mobile-nav-links">
@@ -134,7 +136,7 @@ function Navbar() {
           </div>
         </div>
       </div>
-    </nav>
+    </>
   )
 }
 
