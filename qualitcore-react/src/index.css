@@ -357,13 +357,19 @@ footer { background: var(--navy-deep); color: rgba(255,255,255,0.7); padding: 60
   .problems-grid { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 640px) {
-  nav { padding: 0 4%; }
-  .nav-links { display: none; }
+@media (max-width: 768px) {
+  nav { padding: 0 16px; }
+  .nav-links { display: none !important; }
+  .nav-cta { display: none !important; }
   section { padding: 72px 4%; }
   .modules-grid { grid-template-columns: 1fr; }
+  .reg-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .tech-grid { grid-template-columns: 1fr 1fr; }
   .hero-stats { flex-wrap: wrap; gap: 24px; }
   .cta-actions { flex-direction: column; align-items: center; }
+  .how-steps { grid-template-columns: 1fr; }
+  .how-steps::before { display: none; }
+  .waves-container { grid-template-columns: 1fr; }
 }
