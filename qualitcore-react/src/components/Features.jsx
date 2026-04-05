@@ -8,7 +8,7 @@ const featureSections = [
     title: <>Indicadores que se<br/>atualizam sozinhos.</>,
     desc: 'Motor de indicadores com coleta automática via integrações, coleta manual estruturada e fórmulas versionáveis. Alertas por faixa de meta, tendências e drill-down por setor.',
     items: [
-      { icon: '📡', title: 'Coleta automatizada via GLPI e Tasy', desc: 'Integração direta com sistemas hospitalares para eliminar lançamento manual de dados.' },
+      { icon: '📡', title: 'Coleta automatizada via sistemas integrados', desc: 'Integração direta com sistemas hospitalares (ex.: Tasy, GLPI e outros) para eliminar lançamento manual de dados.' },
       { icon: '🎯', title: 'Metas por período e faixa semafórica', desc: 'Verde, amarelo e vermelho configuráveis por indicador. Alertas automáticos fora da meta.' },
       { icon: '🔗', title: 'Indicador fora da meta abre CAPA automaticamente', desc: 'Regra de negócio configurável que conecta resultado ruim à ação corretiva imediata.' },
     ],

@@ -16,7 +16,7 @@ const modules = [
   { icon: '\u{1F3AF}', name: 'Cockpit Executivo', desc: 'Visão consolidada para diretoria com KPIs, alertas críticos, top riscos, ações atrasadas e mapa por unidade.', tags: ['Executivo','Drill-down','Alertas'] },
   { icon: '\u{1F4CA}', name: 'Apresentações Automáticas', desc: 'Geração automática de PPT e PDF institucionais para reuniões gerenciais, ONA, NSP e diretoria — sem trabalho manual.', tags: ['PPT','PDF','IA'] },
   { icon: '\u{1F512}', name: 'Privacidade e LGPD', desc: 'Incidentes de privacidade, solicitações de titulares, inventário de dados sensíveis e controle de base legal.', tags: ['LGPD','DPO','Incidentes'] },
-  { icon: '\u{1F517}', name: 'Integrações', desc: 'API gateway desacoplada com Tasy/HIS, GLPI, AD/Azure AD, e-mail, WhatsApp e BI. Logs e retry automático.', tags: ['Tasy','GLPI','API'] },
+  { icon: '\u{1F517}', name: 'Integrações', desc: 'API gateway desacoplada com integrações flexíveis (ex.: Tasy, GLPI, AD/Azure AD, e-mail, WhatsApp e BI). Logs e retry automático.', tags: ['Tasy','GLPI','API'] },
   { icon: '\u{1F3D7}', name: 'Governança e Cadastro Mestre', desc: 'Base estrutural: unidades, setores, processos, taxonomias, comissões, SLAs, perfis e parâmetros institucionais.', tags: ['RBAC','Base','Parametrização'] },
   { icon: '\u{1F6E1}', name: 'Segurança e Auditoria', desc: 'Trilha imutável de auditoria, MFA, logs funcionais e técnicos, impersonation controlada e pseudonimização.', tags: ['Auditoria','MFA','LGPD'] },
   { icon: '\u{1F4CB}', name: 'Contratos e Fornecedores', desc: 'Gestão de 78+ contratos ativos com vencimentos, avaliação de fornecedores, savings e alertas automáticos.', tags: ['Contratos','SLA','Avaliação'] },

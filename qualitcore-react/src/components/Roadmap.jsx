@@ -42,8 +42,8 @@ const waves = [
     name: 'Inteligência Total',
     timeline: 'Enterprise: IA e integração total',
     modules: [
-      'Integração Tasy / HIS Oracle',
-      'Integração GLPI Helpdesk',
+      'Integração com HIS (ex.: Tasy, MV, outros)',
+      'Integração com Helpdesk (ex.: GLPI, outros)',
       'BI e Analytics avançado',
       'IA on-premise (Ollama + LLaMA 3)',
       'RAG sobre base documental',
