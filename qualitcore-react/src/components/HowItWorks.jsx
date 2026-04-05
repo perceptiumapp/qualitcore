@@ -1,11 +1,28 @@
 import { useEffect, useRef, useState } from 'react'
 import './HowItWorks.css'
+import Acronym from './Acronym'
 
 const steps = [
-  { num: '01', title: 'Registrar', desc: 'Qualquer colaborador notifica um incidente, risco ou manifestação em poucos cliques, com formulário simplificado.' },
-  { num: '02', title: 'Investigar', desc: 'RCA estruturada com 5 Porquês, Ishikawa e árvore causal. Sistema apoia a equipe investigadora com dados integrados.' },
-  { num: '03', title: 'Tratar', desc: 'CAPA gerada a partir da investigação. Plano de ação com responsáveis, prazos, evidências e avaliação de eficácia.' },
-  { num: '04', title: 'Aprender', desc: 'Indicadores retroalimentados, riscos recalculados, apresentações geradas automaticamente e memória institucional construída.' },
+  {
+    num: '01',
+    title: 'Registrar',
+    desc: <>Qualquer colaborador do hospital registra um incidente, risco ou manifestação da ouvidoria em poucos cliques. Formulários simplificados com classificação automática conforme <Acronym>RDC 36</Acronym> e protocolos do <Acronym>NSP</Acronym>.</>
+  },
+  {
+    num: '02',
+    title: 'Investigar',
+    desc: <>A equipe de qualidade conduz a investigação de causa raiz (<Acronym>RCA</Acronym>) com ferramentas como 5 Porquês, Diagrama de Ishikawa e árvore causal. O sistema cruza dados de incidentes, riscos (<Acronym>ISO 31000</Acronym>) e indicadores para apoiar a análise.</>
+  },
+  {
+    num: '03',
+    title: 'Tratar',
+    desc: <>A partir da investigação, o sistema gera automaticamente um plano de ação corretiva e preventiva (<Acronym>CAPA</Acronym>). Cada ação tem responsável, prazo, evidência obrigatória e avaliação de eficácia — tudo rastreável para auditoria <Acronym>ONA</Acronym>.</>
+  },
+  {
+    num: '04',
+    title: 'Aprender',
+    desc: <>Os indicadores (<Acronym>KPI</Acronym>) são retroalimentados com os resultados. A matriz de riscos é recalculada automaticamente, apresentações gerenciais são geradas por <Acronym>IA</Acronym> e a memória institucional é construída para a melhoria contínua.</>
+  },
 ]
 
 export default function HowItWorks() {
