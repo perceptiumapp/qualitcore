@@ -3,14 +3,14 @@ import './Footer.css'
 
 const footerColumns = [
   {
-    title: 'M\u00f3dulos',
+    title: 'Módulos',
     links: [
-      { label: 'Incidentes e Notifica\u00e7\u00f5es', href: '#modules' },
-      { label: 'Investiga\u00e7\u00e3o RCA', href: '#modules' },
-      { label: 'CAPA e Planos de A\u00e7\u00e3o', href: '#modules' },
-      { label: 'Gest\u00e3o de Riscos', href: '#modules' },
+      { label: 'Incidentes e Notificações', href: '#modules' },
+      { label: 'Investigação RCA', href: '#modules' },
+      { label: 'CAPA e Planos de Ação', href: '#modules' },
+      { label: 'Gestão de Riscos', href: '#modules' },
       { label: 'Indicadores', href: '#modules' },
-      { label: 'Apresenta\u00e7\u00f5es Autom\u00e1ticas', href: '#modules' },
+      { label: 'Apresentações Automáticas', href: '#modules' },
     ],
   },
   {
@@ -18,7 +18,7 @@ const footerColumns = [
     links: [
       { label: 'Como funciona', href: '#how' },
       { label: 'Conformidade', href: '#regulatory' },
-      { label: 'Stack t\u00e9cnica', href: '#tech' },
+      { label: 'Stack técnica', href: '#tech' },
       { label: 'Roadmap', href: '#roadmap' },
       { label: 'Resultados', href: '#stats' },
     ],

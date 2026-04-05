@@ -6,7 +6,7 @@ const VISIBLE_COUNT = 4
 const waves = [
   {
     headerClass: '',
-    label: 'Onda 1 \u00B7 0\u201390 dias',
+    label: 'Onda 1 · 0–90 dias',
     name: 'Nucleo Duro',
     timeline: 'MVP: gestao de qualidade ativa',
     modules: [
@@ -22,14 +22,14 @@ const waves = [
   },
   {
     headerClass: 'wave2',
-    label: 'Onda 2 \u00B7 91\u2013180 dias',
+    label: 'Onda 2 · 91–180 dias',
     name: 'Governanca Hospitalar',
     timeline: 'MMP: hospital auditavel',
     modules: [
       'Documentos e Controle Documental',
       'Treinamentos e Capacitacao',
       'Comissoes e Reunioes',
-      'SAC / Ouvidoria 360\u00B0',
+      'SAC / Ouvidoria 360°',
       'Auditorias e ONA',
       'Privacidade e LGPD',
       'Apresentacoes Automaticas',
@@ -38,7 +38,7 @@ const waves = [
   },
   {
     headerClass: 'wave3',
-    label: 'Onda 3 \u00B7 181\u2013365 dias',
+    label: 'Onda 3 · 181–365 dias',
     name: 'Inteligencia Total',
     timeline: 'Enterprise: IA e integracao total',
     modules: [

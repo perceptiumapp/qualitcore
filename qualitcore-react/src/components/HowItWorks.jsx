@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from 'react'
 import './HowItWorks.css'
 
 const steps = [
-  { num: '01', title: 'Registrar', desc: 'Qualquer colaborador notifica um incidente, risco ou manifesta\u00e7\u00e3o em poucos cliques, com formul\u00e1rio simplificado.' },
-  { num: '02', title: 'Investigar', desc: 'RCA estruturada com 5 Porqu\u00eas, Ishikawa e \u00e1rvore causal. Sistema apoia a equipe investigadora com dados integrados.' },
-  { num: '03', title: 'Tratar', desc: 'CAPA gerada a partir da investiga\u00e7\u00e3o. Plano de a\u00e7\u00e3o com respons\u00e1veis, prazos, evid\u00eancias e avalia\u00e7\u00e3o de efic\u00e1cia.' },
-  { num: '04', title: 'Aprender', desc: 'Indicadores retroalimentados, riscos recalculados, apresenta\u00e7\u00f5es geradas automaticamente e mem\u00f3ria institucional constru\u00edda.' },
+  { num: '01', title: 'Registrar', desc: 'Qualquer colaborador notifica um incidente, risco ou manifestação em poucos cliques, com formulário simplificado.' },
+  { num: '02', title: 'Investigar', desc: 'RCA estruturada com 5 Porquês, Ishikawa e árvore causal. Sistema apoia a equipe investigadora com dados integrados.' },
+  { num: '03', title: 'Tratar', desc: 'CAPA gerada a partir da investigação. Plano de ação com responsáveis, prazos, evidências e avaliação de eficácia.' },
+  { num: '04', title: 'Aprender', desc: 'Indicadores retroalimentados, riscos recalculados, apresentações geradas automaticamente e memória institucional construída.' },
 ]
 
 export default function HowItWorks() {
@@ -81,7 +81,7 @@ export default function HowItWorks() {
     <section id="how" className="hiw-section" ref={sectionRef}>
       <div className="section-label">Como Funciona</div>
       <h2 className="section-title">
-        Do registro ao aprendizado,<br />tudo conectado e rastre\u00e1vel.
+        Do registro ao aprendizado,<br />tudo conectado e rastreável.
       </h2>
 
       <div className="hiw-steps">

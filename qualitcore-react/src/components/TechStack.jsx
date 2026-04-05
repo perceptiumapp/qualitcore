@@ -5,7 +5,7 @@ export default function TechStack() {
     { label: 'Frontend', items: ['Next.js 14', 'TypeScript', 'Tailwind CSS', 'Turborepo'] },
     { label: 'Backend', items: ['NestJS', 'Prisma ORM', 'PostgreSQL 16', 'Redis', 'BullMQ'] },
     {
-      label: 'IA e Integra\u00e7\u00f5es',
+      label: 'IA e Integrações',
       items: ['Anthropic API', 'Ollama + LLaMA 3', 'LangChain', 'RAG on-premise', 'MS Graph API'],
     },
     {
