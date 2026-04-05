@@ -27,7 +27,7 @@ export default function Highlight() {
 
       <div className="ona-badge-large">
         <span role="img" aria-label="trophy">&#127942;</span>{' '}
-        <span>ONA N&iacute;vel 3</span> &mdash; Acreditado com Excel&ecirc;ncia &middot; Fevereiro 2025
+        <span>ONA N&iacute;vel 3</span> &mdash; Acreditado com Excel&ecirc;ncia &middot; Fevereiro 2026
       </div>
 
       <div className="highlight-quote">

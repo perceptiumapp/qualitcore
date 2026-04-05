@@ -92,7 +92,7 @@ export default function Footer() {
 
       <div className="footer-bottom">
         <div className="footer-bottom-left">
-          <div className="footer-copy">&copy; 2025 QualitCore. Todos os direitos reservados.</div>
+          <div className="footer-copy">&copy; 2026 QualitCore. Todos os direitos reservados.</div>
         </div>
         <div className="footer-bottom-right">
           <div className="footer-badges">

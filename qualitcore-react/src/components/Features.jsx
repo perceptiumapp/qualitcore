@@ -70,10 +70,10 @@ function IndicatorsMockup() {
     <div className="feat-mockup feat-mockup--scanline">
       <div className="feat-mockup-top">
         <div className="fmock-dots"><span></span><span></span><span></span></div>
-        <div className="fmock-tab">indicadores / ti / abr-2025</div>
+        <div className="fmock-tab">indicadores / ti / abr-2026</div>
       </div>
       <div className="feat-mockup-body">
-        <div className="fmock-section-label">Indicadores de TI — Abril 2025</div>
+        <div className="fmock-section-label">Indicadores de TI — Abril 2026</div>
         {indicators.map((ind, i) => (
           <div className="ind-row" key={i}>
             <div className={`ind-dot ${ind.dot}`}></div>
@@ -123,7 +123,7 @@ function ReportCardMockup() {
       <div className="report-card-header">
         <div className="report-card-brand">QualitCore</div>
         <div className="report-card-title">Relatório Gerencial</div>
-        <div className="report-card-sub">Gestão da Qualidade · Abril 2025</div>
+        <div className="report-card-sub">Gestão da Qualidade · Abril 2026</div>
         <div className="report-card-stats">
           {[{val:'47',label:'Notificações'},{val:'89%',label:'CAPA OK'},{val:'3',label:'Riscos Crít.'}].map((s, i) => (
             <div key={i} className="report-card-stat">
