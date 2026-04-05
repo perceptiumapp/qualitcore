@@ -1,0 +1,128 @@
+/* Acronym Tooltip */
+.acronym-tooltip {
+  position: relative;
+  cursor: help;
+  border-bottom: 1px dotted var(--teal-main);
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.acronym-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--teal-main);
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+/* Tooltip box */
+.acronym-tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) scale(0.95);
+  background: var(--navy-deep);
+  color: white;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 10px 14px;
+  border-radius: 10px;
+  white-space: normal;
+  width: max-content;
+  max-width: 260px;
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 1000;
+  box-shadow: 0 8px 32px rgba(14, 55, 79, 0.25);
+  border: 1px solid rgba(79, 170, 172, 0.2);
+}
+
+/* Arrow */
+.acronym-tooltip::before {
+  content: '';
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%) scale(0.95);
+  border: 6px solid transparent;
+  border-top-color: var(--navy-deep);
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 1001;
+}
+
+/* Show on hover */
+.acronym-tooltip:hover::after,
+.acronym-tooltip:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+/* On mobile: show on tap (use active) */
+.acronym-tooltip:active::after,
+.acronym-tooltip:active::before {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+/* When tooltip would overflow left */
+.acronym-tooltip:first-child::after {
+  left: 0;
+  transform: translateX(0) scale(0.95);
+}
+.acronym-tooltip:first-child:hover::after {
+  transform: translateX(0) scale(1);
+}
+.acronym-tooltip:first-child::before {
+  left: 16px;
+}
+
+/* Inside dark backgrounds */
+.problem-card .acronym-tooltip,
+#stats .acronym-tooltip,
+#highlight .acronym-tooltip {
+  border-bottom-color: var(--teal-light);
+}
+
+.problem-card .acronym-dot,
+#stats .acronym-dot,
+#highlight .acronym-dot {
+  background: var(--teal-light);
+}
+
+/* Inside tags (mod-tag) */
+.mod-tag .acronym-tooltip {
+  border-bottom: none;
+}
+
+.mod-tag .acronym-dot {
+  display: none;
+}
+
+.mod-tag .acronym-tooltip::after {
+  bottom: calc(100% + 8px);
+  font-size: 11px;
+  padding: 8px 12px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .acronym-tooltip::after {
+    font-size: 11px;
+    max-width: 200px;
+    padding: 8px 12px;
+  }
+
+  .acronym-dot {
+    width: 3px;
+    height: 3px;
+  }
+}

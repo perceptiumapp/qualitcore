@@ -1,8 +1,9 @@
 import { useEffect, useRef } from 'react'
 import './Stats.css'
+import Acronym from './Acronym'
 
 const statsData = [
-  { target: 96, suffix: ',7%', prefix: '', desc: 'Conformidade ONA — auditoria fev/2026' },
+  { target: 96, suffix: ',7%', prefix: '', desc: <>Conformidade <Acronym>ONA</Acronym> — auditoria fev/2026</> },
   { target: 18, suffix: '+', prefix: '', desc: 'Módulos integrados em uma plataforma' },
   { target: 78, suffix: '+', prefix: '', desc: 'Contratos ativos gerenciados' },
   { target: 0, suffix: 'h', prefix: '', desc: 'Para gerar apresentação executiva completa' },

@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react'
 import './Footer.css'
+import Acronym from './Acronym'
 
 const footerColumns = [
   {
@@ -57,14 +58,14 @@ export default function Footer() {
             Qualit<span>Core</span>
           </div>
           <div className="footer-desc">
-            Plataforma de gest&atilde;o integrada da qualidade hospitalar. ONA N&iacute;vel 3 com
+            Plataforma de gest&atilde;o integrada da qualidade hospitalar. <Acronym>ONA</Acronym> N&iacute;vel 3 com
             Excel&ecirc;ncia.
           </div>
           <div className="footer-brand-badges">
-            <span className="footer-badge-pill">ONA N3</span>
-            <span className="footer-badge-pill">LGPD</span>
-            <span className="footer-badge-pill">ISO 31000</span>
-            <span className="footer-badge-pill">PNSP</span>
+            <span className="footer-badge-pill"><Acronym>ONA</Acronym> N3</span>
+            <span className="footer-badge-pill"><Acronym>LGPD</Acronym></span>
+            <span className="footer-badge-pill"><Acronym>ISO</Acronym> 31000</span>
+            <span className="footer-badge-pill"><Acronym>PNSP</Acronym></span>
           </div>
         </div>
 

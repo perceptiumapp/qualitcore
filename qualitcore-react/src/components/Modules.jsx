@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
+import Acronym from './Acronym'
 import './Modules.css'
 
 const modules = [
@@ -93,7 +94,7 @@ export default function Modules() {
                 <div className="mod-desc">{m.desc}</div>
                 <div className="mod-tags mod-tags--mobile">
                   {m.tags.map((t, j) => (
-                    <span className="mod-tag" key={j}>{t}</span>
+                    <span className="mod-tag" key={j}><Acronym>{t}</Acronym></span>
                   ))}
                 </div>
               </div>
@@ -124,7 +125,7 @@ export default function Modules() {
               <div className="mod-desc">{m.desc}</div>
               <div className="mod-tags">
                 {m.tags.map((t, j) => (
-                  <span className="mod-tag" key={j}>{t}</span>
+                  <span className="mod-tag" key={j}><Acronym>{t}</Acronym></span>
                 ))}
               </div>
             </div>

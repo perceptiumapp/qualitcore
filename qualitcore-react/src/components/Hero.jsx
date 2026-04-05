@@ -1,4 +1,5 @@
 import './Hero.css'
+import Acronym from './Acronym'
 
 function Hero() {
   return (
@@ -6,7 +7,7 @@ function Hero() {
       <div className="hero-bg-gradient" />
 
       <div className="hero-content">
-        <div className="hero-badge">Plataforma de Gestão da Qualidade &middot; ONA Nível 3</div>
+        <div className="hero-badge">Plataforma de Gestão da Qualidade &middot; <Acronym>ONA</Acronym> Nível 3</div>
         <h1 className="hero-title">
           Gestão da qualidade
           <span className="accent line2">hospitalar integrada,</span>
@@ -26,7 +27,7 @@ function Hero() {
           </div>
           <div>
             <div className="hero-stat-num">96,7%</div>
-            <div className="hero-stat-label">Conformidade ONA</div>
+            <div className="hero-stat-label">Conformidade <Acronym>ONA</Acronym></div>
           </div>
           <div>
             <div className="hero-stat-num">360&deg;</div>
@@ -40,7 +41,7 @@ function Hero() {
         <div className="mini-dash-card">
           <div className="mini-dash-icon good">&#x2713;</div>
           <div className="mini-dash-value good">96,7%</div>
-          <div className="mini-dash-label">ONA Score</div>
+          <div className="mini-dash-label"><Acronym>ONA</Acronym> Score</div>
         </div>
         <div className="mini-dash-card">
           <div className="mini-dash-icon warn">!</div>
@@ -50,7 +51,7 @@ function Hero() {
         <div className="mini-dash-card">
           <div className="mini-dash-icon good">&#x2713;</div>
           <div className="mini-dash-value good">87%</div>
-          <div className="mini-dash-label">CAPA</div>
+          <div className="mini-dash-label"><Acronym>CAPA</Acronym></div>
         </div>
       </div>
 
@@ -83,7 +84,7 @@ function Hero() {
               <div className="scard-delta down">&darr; 3 vs mês anterior</div>
             </div>
             <div className="screen-card">
-              <div className="scard-label">CAPA Concluídas</div>
+              <div className="scard-label"><Acronym>CAPA</Acronym> Concluídas</div>
               <div className="scard-value good">87%</div>
               <div className="scard-delta up">&uarr; 12% este mês</div>
             </div>
@@ -93,7 +94,7 @@ function Hero() {
               <div className="scard-delta down">&darr; 1 tratado hoje</div>
             </div>
             <div className="screen-card">
-              <div className="scard-label">ONA Score</div>
+              <div className="scard-label"><Acronym>ONA</Acronym> Score</div>
               <div className="scard-value good">96,7%</div>
               <div className="scard-delta up">&uarr; Nível 3 vigente</div>
             </div>
@@ -167,7 +168,7 @@ function Hero() {
           <div>
             <div>RCA concluída</div>
             <div style={{ fontSize: '10px', color: 'var(--gray-mid)', fontWeight: 400 }}>
-              CAPA gerada automaticamente
+              <Acronym>CAPA</Acronym> gerada automaticamente
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import './Regulatory.css'
+import Acronym from './Acronym'
 
 const regs = [
   { badge: 'ona', label: 'ONA', title: 'Acreditação ONA', desc: 'Módulo de auditoria mapeado nas dimensões ONA. Central de evidências por requisito. Painel de prontidão para visita. Score de conformidade em tempo real.' },
@@ -16,7 +17,7 @@ export default function Regulatory() {
       <div className="reg-grid">
         {regs.map((r, i) => (
           <div className={`reg-card reg-card--${r.badge}`} key={i}>
-            <div className={`reg-badge ${r.badge}`}>{r.label}</div>
+            <div className={`reg-badge ${r.badge}`}><Acronym>{r.label}</Acronym></div>
             <div className="reg-card-title">{r.title}</div>
             <div className="reg-card-desc">{r.desc}</div>
           </div>
