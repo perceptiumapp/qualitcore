@@ -6,23 +6,23 @@ function Hero() {
       <div className="hero-bg-gradient" />
 
       <div className="hero-content">
-        <div className="hero-badge">Plataforma de Gestao da Qualidade &middot; ONA Nivel 3</div>
+        <div className="hero-badge">Plataforma de Gestão da Qualidade &middot; ONA Nível 3</div>
         <h1 className="hero-title">
-          Gestao de qualidade
+          Gestão de qualidade
           <span className="accent line2">hospitalar integrada,</span>
-          do incidente a evidencia.
+          do incidente a evidência.
         </h1>
         <p className="hero-desc">
-          QualitCore e a plataforma enterprise que centraliza incidentes, CAPA, riscos, indicadores, documentos, ouvidoria, reunioes e apresentacoes executivas em um unico sistema rastreavel e auditavel.
+          QualitCore e a plataforma enterprise que centraliza incidentes, CAPA, riscos, indicadores, documentos, ouvidoria, reuniões e apresentações executivas em um unico sistema rastreável e auditável.
         </p>
         <div className="hero-actions">
-          <a href="#cta" className="btn-primary btn-large">Ver demonstracao &rarr;</a>
-          <a href="#modules" className="btn-secondary">Explorar modulos</a>
+          <a href="#cta" className="btn-primary btn-large">Ver demonstração &rarr;</a>
+          <a href="#modules" className="btn-secondary">Explorar módulos</a>
         </div>
         <div className="hero-stats">
           <div>
             <div className="hero-stat-num">18</div>
-            <div className="hero-stat-label">Modulos integrados</div>
+            <div className="hero-stat-label">Módulos integrados</div>
           </div>
           <div>
             <div className="hero-stat-num">96,7%</div>
@@ -95,7 +95,7 @@ function Hero() {
             <div className="screen-card">
               <div className="scard-label">ONA Score</div>
               <div className="scard-value good">96,7%</div>
-              <div className="scard-delta up">&uarr; Nivel 3 mantido</div>
+              <div className="scard-delta up">&uarr; Nível 3 mantido</div>
             </div>
           </div>
 
@@ -141,7 +141,7 @@ function Hero() {
 
           <div className="screen-incidents">
             <div className="sinc-header">
-              <div className="sinc-title">Ultimas Notificacoes</div>
+              <div className="sinc-title">Ultimas Notificações</div>
               <div className="sinc-badge">LIVE</div>
             </div>
             <div className="sinc-row">

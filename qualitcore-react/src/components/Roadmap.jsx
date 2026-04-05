@@ -7,32 +7,32 @@ const waves = [
   {
     headerClass: '',
     label: 'Onda 1 · 0–90 dias',
-    name: 'Nucleo Duro',
-    timeline: 'MVP: gestao de qualidade ativa',
+    name: 'Núcleo Duro',
+    timeline: 'MVP: gestão de qualidade ativa',
     modules: [
-      'Notificacoes e Incidentes',
-      'Investigacao e Causa Raiz',
+      'Notificações e Incidentes',
+      'Investigação e Causa Raiz',
       'Plano de Acao / CAPA',
-      'Gestao de Riscos',
+      'Gestão de Riscos',
       'Indicadores e Dashboards',
       'Cockpit Executivo basico',
-      'Governanca e Cadastro Mestre',
-      'Seguranca e RBAC',
+      'Governança e Cadastro Mestre',
+      'Segurança e RBAC',
     ],
   },
   {
     headerClass: 'wave2',
     label: 'Onda 2 · 91–180 dias',
-    name: 'Governanca Hospitalar',
-    timeline: 'MMP: hospital auditavel',
+    name: 'Governança Hospitalar',
+    timeline: 'MMP: hospital auditável',
     modules: [
       'Documentos e Controle Documental',
-      'Treinamentos e Capacitacao',
-      'Comissoes e Reunioes',
+      'Treinamentos e Capacitação',
+      'Comissões e Reunioes',
       'SAC / Ouvidoria 360°',
       'Auditorias e ONA',
       'Privacidade e LGPD',
-      'Apresentacoes Automaticas',
+      'Apresentações Automáticas',
       'Contratos e Fornecedores',
     ],
   },
@@ -40,14 +40,14 @@ const waves = [
     headerClass: 'wave3',
     label: 'Onda 3 · 181–365 dias',
     name: 'Inteligencia Total',
-    timeline: 'Enterprise: IA e integracao total',
+    timeline: 'Enterprise: IA e integração total',
     modules: [
-      'Integracao Tasy / HIS Oracle',
-      'Integracao GLPI Helpdesk',
-      'BI e Analytics avancado',
+      'Integração Tasy / HIS Oracle',
+      'Integração GLPI Helpdesk',
+      'BI e Analytics avançado',
       'IA on-premise (Ollama + LLaMA 3)',
       'RAG sobre base documental',
-      'Planejamento Orcamentario',
+      'Planejamento Orçamentário',
       'Cockpit Executivo completo',
       'Rastreabilidade Operacional',
     ],
@@ -119,7 +119,7 @@ function WaveCard({ wave, index }) {
 export default function Roadmap() {
   return (
     <section id="roadmap" className="roadmap-section">
-      <div className="section-label">Roadmap de Implantacao</div>
+      <div className="section-label">Roadmap de Implantação</div>
       <h2 className="section-title">
         Tres ondas de entrega.
         <br />

@@ -2,12 +2,12 @@ import { useEffect, useRef } from 'react'
 import './Certs.css'
 
 const certs = [
-  { icon: '\u{1F3E5}', text: 'ONA Nivel 3', sub: 'Acreditacao com Excelencia', bg: null },
-  { icon: '\u{1F512}', text: 'LGPD Compliant', sub: 'Privacidade desde a concepcao', bg: 'var(--navy-deep)' },
-  { icon: '\u2699\uFE0F', text: 'ISO 31000', sub: 'Gestao de riscos', bg: 'var(--orange)' },
-  { icon: '\u2764\uFE0F', text: 'PNSP / RDC 36', sub: 'Seguranca do Paciente', bg: 'var(--rose)' },
+  { icon: '\u{1F3E5}', text: 'ONA Nível 3', sub: 'Acreditação com Excelência', bg: null },
+  { icon: '\u{1F512}', text: 'LGPD Compliant', sub: 'Privacidade desde a concepção', bg: 'var(--navy-deep)' },
+  { icon: '\u2699\uFE0F', text: 'ISO 31000', sub: 'Gestão de riscos', bg: 'var(--orange)' },
+  { icon: '\u2764\uFE0F', text: 'PNSP / RDC 36', sub: 'Segurança do Paciente', bg: 'var(--rose)' },
   { icon: '\u{1F4D0}', text: 'ISO 9001', sub: 'Qualidade de processos', bg: '#2E2E33' },
-  { icon: '\u{1F916}', text: 'ISO/IEC 42001', sub: 'Governanca de IA', bg: 'var(--navy)' },
+  { icon: '\u{1F916}', text: 'ISO/IEC 42001', sub: 'Governança de IA', bg: 'var(--navy)' },
 ]
 
 export default function Certs() {

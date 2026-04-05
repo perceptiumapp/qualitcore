@@ -52,15 +52,15 @@ function Navbar() {
 
       {/* Desktop nav links (unchanged) */}
       <ul className="nav-links">
-        <li><a href="#modules">Modulos</a></li>
+        <li><a href="#modules">Módulos</a></li>
         <li><a href="#features">Funcionalidades</a></li>
-        <li><a href="#regulatory">Regulatorio</a></li>
+        <li><a href="#regulatory">Regulatório</a></li>
         <li><a href="#roadmap">Roadmap</a></li>
         <li><a href="#tech">Tecnologia</a></li>
       </ul>
 
       {/* Desktop CTA (unchanged) */}
-      <a href="#cta" className="nav-cta nav-cta-desktop">Solicitar demonstracao</a>
+      <a href="#cta" className="nav-cta nav-cta-desktop">Solicitar demonstração</a>
 
       {/* Hamburger button (mobile only) */}
       <button
@@ -89,7 +89,7 @@ function Navbar() {
             <li style={{ animationDelay: '0.05s' }}>
               <a href="#modules" onClick={closeMenu}>
                 <span className="mobile-nav-icon">&#9670;</span>
-                Modulos
+                Módulos
               </a>
             </li>
             <li style={{ animationDelay: '0.1s' }}>
@@ -101,7 +101,7 @@ function Navbar() {
             <li style={{ animationDelay: '0.15s' }}>
               <a href="#regulatory" onClick={closeMenu}>
                 <span className="mobile-nav-icon">&#9670;</span>
-                Regulatorio
+                Regulatório
               </a>
             </li>
             <li style={{ animationDelay: '0.2s' }}>
@@ -120,7 +120,7 @@ function Navbar() {
 
           <div className="mobile-drawer__cta-wrapper">
             <a href="#cta" className="mobile-drawer__cta" onClick={closeMenu}>
-              Solicitar demonstracao
+              Solicitar demonstração
               <span className="mobile-drawer__cta-arrow">&rarr;</span>
             </a>
           </div>
@@ -130,7 +130,7 @@ function Navbar() {
               <div className="nav-logo-mark" style={{ width: 28, height: 28, fontSize: 12 }}>QC</div>
               <span>QualitCore</span>
             </div>
-            <p className="mobile-drawer__tagline">Plataforma de Gestao da Qualidade</p>
+            <p className="mobile-drawer__tagline">Plataforma de Gestão da Qualidade</p>
           </div>
         </div>
       </div>

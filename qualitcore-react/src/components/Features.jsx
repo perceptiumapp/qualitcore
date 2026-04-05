@@ -29,7 +29,7 @@ const featureSections = [
     mockup: 'riskMatrix',
   },
   {
-    id: 'apresentacoes',
+    id: 'apresentações',
     tab: 'Relatórios',
     title: <>Relatório executivo<br/>pronto em 1 clique.</>,
     desc: 'O sistema gera automaticamente apresentações PPT e PDF com identidade visual institucional para reuniões gerenciais, ONA, NSP e diretoria — sem trabalho manual, sem planilha paralela.',
