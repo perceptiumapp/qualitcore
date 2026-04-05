@@ -129,11 +129,10 @@
 
 .mobile-nav-links li {
   opacity: 0;
-  animation: mobileNavFadeIn 0.4s ease forwards;
+  transform: translateX(20px);
 }
 
 .mobile-drawer--open .mobile-nav-links li {
-  opacity: 0;
   animation: mobileNavFadeIn 0.4s ease forwards;
 }
 
@@ -187,6 +186,10 @@
 .mobile-drawer__cta-wrapper {
   padding: 0 4px;
   opacity: 0;
+  transform: translateX(20px);
+}
+
+.mobile-drawer--open .mobile-drawer__cta-wrapper {
   animation: mobileNavFadeIn 0.4s ease 0.3s forwards;
 }
 
@@ -252,6 +255,10 @@
   padding-top: 24px;
   border-top: 1px solid var(--border);
   opacity: 0;
+  transform: translateX(20px);
+}
+
+.mobile-drawer--open .mobile-drawer__footer {
   animation: mobileNavFadeIn 0.4s ease 0.35s forwards;
 }
 
