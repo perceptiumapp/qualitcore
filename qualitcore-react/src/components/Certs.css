@@ -5,6 +5,8 @@
   border-top: 1px solid rgba(1, 113, 123, 0.15);
   border-bottom: 1px solid rgba(1, 113, 123, 0.15);
   position: relative;
+  overflow: hidden;
+  max-width: 100vw;
 }
 
 .certs-inner {

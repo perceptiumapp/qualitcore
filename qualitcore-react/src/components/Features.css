@@ -495,6 +495,11 @@
    Mobile breakpoint (max-width: 768px)
    ============================================================ */
 @media (max-width: 768px) {
+  #features {
+    overflow: hidden;
+    max-width: 100vw;
+  }
+
   /* Hide desktop layout */
   .features-desktop {
     display: none;
@@ -543,17 +548,23 @@
     overflow: hidden;
     margin-top: 20px;
     touch-action: pan-y;
+    max-width: 100%;
+    width: 100%;
   }
 
   .features-swipe-track {
     display: flex;
     transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    width: 100%;
   }
 
   .features-swipe-slide {
     min-width: 100%;
+    max-width: 100%;
     flex-shrink: 0;
     padding: 0 2px;
+    overflow: hidden;
+    box-sizing: border-box;
   }
 
   /* Subtle top border gradient per section */
