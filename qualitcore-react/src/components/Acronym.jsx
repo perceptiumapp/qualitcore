@@ -1,3 +1,5 @@
+import { useState, useRef, useCallback } from 'react'
+import { createPortal } from 'react-dom'
 import './Acronym.css'
 
 const acronyms = {
@@ -29,21 +31,68 @@ const acronyms = {
   'RAG': 'Retrieval-Augmented Generation — Geração com Recuperação de Dados',
   'BI': 'Business Intelligence — Inteligência de Negócios',
   'Tasy': 'Sistema de Gestão Hospitalar — Philips/Oracle',
+  'ISO': 'International Organization for Standardization',
+  'Kanban': 'Método visual de gestão de fluxo de trabalho',
+  'Heatmap': 'Mapa de calor — visualização de dados por intensidade',
+  'Dashboard': 'Painel de controle com indicadores visuais',
+  'Workflow': 'Fluxo de trabalho automatizado',
+  'Versionamento': 'Controle de versões de documentos',
 }
 
 export default function Acronym({ children }) {
   const text = typeof children === 'string' ? children : ''
   const description = acronyms[text]
+  const [show, setShow] = useState(false)
+  const [pos, setPos] = useState({ x: 0, y: 0 })
+  const ref = useRef(null)
+  const timeoutRef = useRef(null)
+
+  const handleEnter = useCallback(() => {
+    if (!ref.current || !description) return
+    const rect = ref.current.getBoundingClientRect()
+    setPos({
+      x: rect.left + rect.width / 2,
+      y: rect.top
+    })
+    timeoutRef.current = setTimeout(() => setShow(true), 100)
+  }, [description])
+
+  const handleLeave = useCallback(() => {
+    clearTimeout(timeoutRef.current)
+    setShow(false)
+  }, [])
 
   if (!description) {
     return <span>{children}</span>
   }
 
   return (
-    <span className="acronym-tooltip" data-tooltip={description}>
-      {children}
-      <span className="acronym-dot" aria-hidden="true"></span>
-    </span>
+    <>
+      <span
+        className="acronym-trigger"
+        ref={ref}
+        onMouseEnter={handleEnter}
+        onMouseLeave={handleLeave}
+        onTouchStart={handleEnter}
+        onTouchEnd={handleLeave}
+      >
+        {children}
+        <span className="acronym-dot" aria-hidden="true"></span>
+      </span>
+      {show && createPortal(
+        <div
+          className="acronym-portal-tooltip"
+          style={{
+            left: `${pos.x}px`,
+            top: `${pos.y}px`,
+          }}
+        >
+          <div className="acronym-portal-arrow" />
+          <div className="acronym-portal-text">{description}</div>
+        </div>,
+        document.body
+      )}
+    </>
   )
 }
 
