@@ -1,7 +1,22 @@
+import { useEffect, useRef, useState } from 'react'
 import './Hero.css'
 import Acronym from './Acronym'
 
 function Hero() {
+  const visualRef = useRef(null)
+  const [visualVisible, setVisualVisible] = useState(false)
+
+  useEffect(() => {
+    const el = visualRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisualVisible(true); observer.disconnect() } },
+      { threshold: 0.3 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <section id="hero">
       <div className="hero-bg-gradient" />
@@ -56,7 +71,7 @@ function Hero() {
       </div>
 
       {/* Desktop dashboard visual */}
-      <div className="hero-visual">
+      <div className={`hero-visual${visualVisible ? ' hero-visual--visible' : ''}`} ref={visualRef}>
         <div className="hero-float-badge badge-2">
           <div className="badge-icon teal">&#x1F4CA;</div>
           <div>

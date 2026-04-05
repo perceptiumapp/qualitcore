@@ -96,6 +96,72 @@
   100% { background-position: 0% 50%; }
 }
 
+/* Enhanced glow pulse on hover */
+@keyframes ctaGlowPulse {
+  0%, 100% { opacity: 0.6; filter: blur(4px); transform: scale(1); }
+  50% { opacity: 1; filter: blur(8px); transform: scale(1.03); }
+}
+
+.cta-btn-primary:hover::before {
+  animation: ctaGlowPulse 1.5s ease infinite, cta-glow-rotate 3s ease infinite;
+}
+
+/* --- Background hover wave effect --- */
+@keyframes ctaWave {
+  0% { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(200%) skewX(-15deg); }
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(1, 113, 123, 0.04),
+    transparent
+  );
+  transform: translateX(-100%) skewX(-15deg);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cta-section:hover::before {
+  animation: ctaWave 2s ease forwards;
+}
+
+/* --- Outline button smooth fill on hover --- */
+.cta-section .btn-outline-large {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.cta-section .btn-outline-large::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--teal-main);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: -1;
+  border-radius: 8px;
+}
+
+.cta-section .btn-outline-large:hover::before {
+  transform: scaleX(1);
+}
+
+.cta-section .btn-outline-large:hover {
+  color: white;
+  border-color: var(--teal-main);
+}
+
 /* ── Responsive: 1024px ── */
 @media (max-width: 1024px) {
   .cta-section {

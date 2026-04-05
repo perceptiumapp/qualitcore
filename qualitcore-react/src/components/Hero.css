@@ -37,6 +37,58 @@
   z-index: 1;
 }
 
+/* --- Screen card hover glow --- */
+.screen-card {
+  transition: box-shadow 0.3s ease, transform 0.3s ease, background 0.3s ease;
+}
+
+.screen-card:hover {
+  box-shadow: 0 0 20px rgba(79, 170, 172, 0.2), 0 0 40px rgba(79, 170, 172, 0.08);
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+/* --- Progress bar scroll-in animation --- */
+@keyframes barGrow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.hero-visual .sbar-fill {
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
+.hero-visual.hero-visual--visible .sbar-row:nth-child(1) .sbar-fill { animation: barGrow 1s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards; }
+.hero-visual.hero-visual--visible .sbar-row:nth-child(2) .sbar-fill { animation: barGrow 1s cubic-bezier(0.22, 1, 0.36, 1) 0.25s forwards; }
+.hero-visual.hero-visual--visible .sbar-row:nth-child(3) .sbar-fill { animation: barGrow 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards; }
+.hero-visual.hero-visual--visible .sbar-row:nth-child(4) .sbar-fill { animation: barGrow 1s cubic-bezier(0.22, 1, 0.36, 1) 0.55s forwards; }
+
+/* --- Notification rows slide-in stagger --- */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hero-visual .sinc-row {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.hero-visual.hero-visual--visible .sinc-row:nth-child(1) { animation: slideInRight 0.5s ease forwards 0.3s; }
+.hero-visual.hero-visual--visible .sinc-row:nth-child(2) { animation: slideInRight 0.5s ease forwards 0.5s; }
+.hero-visual.hero-visual--visible .sinc-row:nth-child(3) { animation: slideInRight 0.5s ease forwards 0.7s; }
+
 /* ---- Mobile mini-dashboard (hidden on desktop) ---- */
 .hero-mini-dashboard {
   display: none; /* shown via media query on mobile */
@@ -158,6 +210,14 @@
       0 0 0 1px rgba(255, 255, 255, 0.06);
     position: relative;
     overflow: hidden;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .mini-dash-card:active {
+    transform: scale(0.95);
+    box-shadow:
+      0 4px 12px rgba(14, 55, 79, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.08);
   }
 
   .mini-dash-card::before {

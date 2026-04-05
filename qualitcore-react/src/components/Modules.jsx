@@ -37,6 +37,30 @@ export default function Modules() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isMobile, setIsMobile] = useState(false)
 
+  const handleCardMouseMove = useCallback((e) => {
+    const card = e.currentTarget
+    const rect = card.getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+    const centerX = rect.width / 2
+    const centerY = rect.height / 2
+    const rotateX = ((y - centerY) / centerY) * -6
+    const rotateY = ((x - centerX) / centerX) * 6
+
+    card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`
+    card.style.setProperty('--mouse-x', `${x}px`)
+    card.style.setProperty('--mouse-y', `${y}px`)
+    card.style.setProperty('--shine-x', `${(x / rect.width) * 100}%`)
+    card.style.setProperty('--shine-y', `${(y / rect.height) * 100}%`)
+  }, [])
+
+  const handleCardMouseLeave = useCallback((e) => {
+    const card = e.currentTarget
+    card.style.transform = ''
+    card.style.setProperty('--mouse-x', '50%')
+    card.style.setProperty('--mouse-y', '50%')
+  }, [])
+
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth <= 768)
     check()
@@ -119,13 +143,17 @@ export default function Modules() {
               className="module-card"
               key={i}
               style={{ transitionDelay: `${(i % 3) * 60}ms` }}
+              onMouseMove={handleCardMouseMove}
+              onMouseLeave={handleCardMouseLeave}
             >
+              <div className="mod-card-glow" aria-hidden="true" />
+              <div className="mod-card-shine" aria-hidden="true" />
               <div className="mod-icon">{m.icon}</div>
               <div className="mod-name">{m.name}</div>
               <div className="mod-desc">{m.desc}</div>
               <div className="mod-tags">
                 {m.tags.map((t, j) => (
-                  <span className="mod-tag" key={j}><Acronym>{t}</Acronym></span>
+                  <span className="mod-tag" key={j} style={{ transitionDelay: `${j * 40}ms` }}><Acronym>{t}</Acronym></span>
                 ))}
               </div>
             </div>

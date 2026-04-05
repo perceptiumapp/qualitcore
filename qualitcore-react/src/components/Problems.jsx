@@ -50,7 +50,7 @@ export default function Problems() {
             className="problem-card"
             key={i}
             ref={(el) => (cardsRef.current[i] = el)}
-            style={{ transitionDelay: `${i * 80}ms` }}
+            style={{ transitionDelay: `${i * 120}ms` }}
           >
             <div className="problem-icon">{p.icon}</div>
             <div className="problem-title">{p.title}</div>

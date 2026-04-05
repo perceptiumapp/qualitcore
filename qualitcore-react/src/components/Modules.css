@@ -198,5 +198,12 @@
     display: none;
   }
 
-  /* Grid is already styled in index.css — no overrides needed */
+  /* Icon glow pulse keyframes */
+  @keyframes mod-icon-pulse {
+    0%, 100% { box-shadow: 0 0 16px rgba(1,113,123,0.25), 0 0 32px rgba(1,113,123,0.10); }
+    50% { box-shadow: 0 0 24px rgba(1,113,123,0.35), 0 0 48px rgba(1,113,123,0.18); }
+  }
+  .module-card:hover .mod-icon {
+    animation: mod-icon-pulse 2s ease-in-out infinite;
+  }
 }

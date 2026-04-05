@@ -24,25 +24,34 @@
   overflow: hidden;
   border: 1.5px solid var(--border);
   background: white;
-  transition: all 0.3s;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .wave-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 16px 48px rgba(1, 113, 123, 0.12);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(1, 113, 123, 0.16);
 }
 
 .wave-header {
   padding: 28px;
   background: linear-gradient(135deg, var(--teal-deep), var(--teal-main));
+  background-size: 200% 200%;
+  transition: background-position 0.6s ease;
+}
+
+.wave-card:hover .wave-header {
+  background-position: 100% 100%;
+  background-size: 200% 200%;
 }
 
 .wave-header.wave2 {
-  background: linear-gradient(135deg, var(--navy-deep), var(--navy));
+  background: linear-gradient(135deg, var(--navy-deep), var(--navy), var(--navy-deep));
+  background-size: 200% 200%;
 }
 
 .wave-header.wave3 {
-  background: linear-gradient(135deg, #2E2E33, var(--navy-deep));
+  background: linear-gradient(135deg, #2E2E33, var(--navy-deep), #2E2E33);
+  background-size: 200% 200%;
 }
 
 .wave-label {
@@ -78,7 +87,19 @@
   border-bottom: 1px solid var(--border);
   font-size: 14px;
   color: var(--gray-dark);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateX(0);
 }
+
+/* Staggered slide-in on card hover */
+.wave-card:hover .wave-module:nth-child(1) { transform: translateX(4px); transition-delay: 0s; }
+.wave-card:hover .wave-module:nth-child(2) { transform: translateX(4px); transition-delay: 0.04s; }
+.wave-card:hover .wave-module:nth-child(3) { transform: translateX(4px); transition-delay: 0.08s; }
+.wave-card:hover .wave-module:nth-child(4) { transform: translateX(4px); transition-delay: 0.12s; }
+.wave-card:hover .wave-module:nth-child(5) { transform: translateX(4px); transition-delay: 0.16s; }
+.wave-card:hover .wave-module:nth-child(6) { transform: translateX(4px); transition-delay: 0.20s; }
+.wave-card:hover .wave-module:nth-child(7) { transform: translateX(4px); transition-delay: 0.24s; }
+.wave-card:hover .wave-module:nth-child(8) { transform: translateX(4px); transition-delay: 0.28s; }
 
 .wave-module:last-child {
   border-bottom: none;
@@ -90,6 +111,11 @@
   color: var(--teal-main);
   font-size: 12px;
   flex-shrink: 0;
+  transition: color 0.3s ease;
+}
+
+.wave-card:hover .wave-module::before {
+  color: var(--teal-deep);
 }
 
 /* Expand / collapse button */
@@ -207,10 +233,10 @@
 
   @keyframes timelinePulse {
     0%, 100% {
-      box-shadow: 0 0 0 3px rgba(1, 113, 123, 0.2);
+      box-shadow: 0 0 0 3px rgba(1, 113, 123, 0.2), 0 0 6px rgba(1, 113, 123, 0.1);
     }
     50% {
-      box-shadow: 0 0 0 6px rgba(1, 113, 123, 0.12), 0 0 12px rgba(1, 113, 123, 0.15);
+      box-shadow: 0 0 0 6px rgba(1, 113, 123, 0.15), 0 0 16px rgba(1, 113, 123, 0.25), 0 0 28px rgba(79, 170, 172, 0.12);
     }
   }
 

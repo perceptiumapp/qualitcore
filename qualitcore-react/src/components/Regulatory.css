@@ -15,13 +15,64 @@
   padding: 28px;
   border: 1.5px solid var(--border);
   text-align: center;
-  transition: all 0.3s;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated gradient top border */
+.reg-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--teal-main), var(--teal-light), var(--teal-deep));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reg-card--lgpd::before {
+  background: linear-gradient(90deg, var(--navy-deep), var(--navy), #4a5a80);
+}
+
+.reg-card--iso::before {
+  background: linear-gradient(90deg, var(--orange), #f5a234, #f58634);
+}
+
+.reg-card--pnsp::before {
+  background: linear-gradient(90deg, var(--rose), #f07090, #f05973);
 }
 
 .reg-card:hover {
   border-color: var(--teal-main);
-  box-shadow: 0 8px 32px rgba(1, 113, 123, 0.10);
-  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(1, 113, 123, 0.14);
+  transform: translateY(-6px);
+  background: linear-gradient(180deg, rgba(79, 170, 172, 0.03) 0%, white 100%);
+}
+
+.reg-card--lgpd:hover {
+  border-color: var(--navy-deep);
+  box-shadow: 0 12px 40px rgba(46, 58, 85, 0.14);
+  background: linear-gradient(180deg, rgba(46, 58, 85, 0.03) 0%, white 100%);
+}
+
+.reg-card--iso:hover {
+  border-color: var(--orange);
+  box-shadow: 0 12px 40px rgba(245, 134, 52, 0.14);
+  background: linear-gradient(180deg, rgba(245, 134, 52, 0.03) 0%, white 100%);
+}
+
+.reg-card--pnsp:hover {
+  border-color: var(--rose);
+  box-shadow: 0 12px 40px rgba(240, 89, 115, 0.14);
+  background: linear-gradient(180deg, rgba(240, 89, 115, 0.03) 0%, white 100%);
+}
+
+.reg-card:hover::before {
+  transform: scaleX(1);
 }
 
 .reg-badge {
@@ -32,6 +83,48 @@
   font-weight: 800;
   font-size: 18px;
   margin-bottom: 16px;
+  transition: all 0.4s ease;
+}
+
+/* Badge pulse/glow on card hover */
+.reg-card:hover .reg-badge.ona {
+  box-shadow: 0 0 16px rgba(79, 170, 172, 0.4), 0 0 32px rgba(79, 170, 172, 0.15);
+  animation: badgePulseOna 1.5s ease-in-out infinite;
+}
+
+.reg-card:hover .reg-badge.lgpd {
+  box-shadow: 0 0 16px rgba(46, 58, 85, 0.4), 0 0 32px rgba(46, 58, 85, 0.15);
+  animation: badgePulseLgpd 1.5s ease-in-out infinite;
+}
+
+.reg-card:hover .reg-badge.iso {
+  box-shadow: 0 0 16px rgba(245, 134, 52, 0.4), 0 0 32px rgba(245, 134, 52, 0.15);
+  animation: badgePulseIso 1.5s ease-in-out infinite;
+}
+
+.reg-card:hover .reg-badge.pnsp {
+  box-shadow: 0 0 16px rgba(240, 89, 115, 0.4), 0 0 32px rgba(240, 89, 115, 0.15);
+  animation: badgePulsePnsp 1.5s ease-in-out infinite;
+}
+
+@keyframes badgePulseOna {
+  0%, 100% { box-shadow: 0 0 16px rgba(79, 170, 172, 0.4), 0 0 32px rgba(79, 170, 172, 0.15); }
+  50% { box-shadow: 0 0 22px rgba(79, 170, 172, 0.55), 0 0 44px rgba(79, 170, 172, 0.25); }
+}
+
+@keyframes badgePulseLgpd {
+  0%, 100% { box-shadow: 0 0 16px rgba(46, 58, 85, 0.4), 0 0 32px rgba(46, 58, 85, 0.15); }
+  50% { box-shadow: 0 0 22px rgba(46, 58, 85, 0.55), 0 0 44px rgba(46, 58, 85, 0.25); }
+}
+
+@keyframes badgePulseIso {
+  0%, 100% { box-shadow: 0 0 16px rgba(245, 134, 52, 0.4), 0 0 32px rgba(245, 134, 52, 0.15); }
+  50% { box-shadow: 0 0 22px rgba(245, 134, 52, 0.55), 0 0 44px rgba(245, 134, 52, 0.25); }
+}
+
+@keyframes badgePulsePnsp {
+  0%, 100% { box-shadow: 0 0 16px rgba(240, 89, 115, 0.4), 0 0 32px rgba(240, 89, 115, 0.15); }
+  50% { box-shadow: 0 0 22px rgba(240, 89, 115, 0.55), 0 0 44px rgba(240, 89, 115, 0.25); }
 }
 
 .reg-badge.ona  { background: var(--teal-pale); color: var(--teal-deep); }

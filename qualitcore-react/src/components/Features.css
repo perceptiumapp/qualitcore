@@ -52,6 +52,15 @@
   gap: 16px;
   padding: 18px 0;
   border-bottom: 1px solid var(--border);
+  border-left: 3px solid transparent;
+  padding-left: 0;
+  transition: transform 0.25s ease, border-left-color 0.25s ease, padding-left 0.25s ease;
+}
+
+.feat-item:hover {
+  transform: translateX(6px);
+  border-left-color: var(--teal-main);
+  padding-left: 12px;
 }
 
 .feat-item:last-child {
@@ -104,6 +113,17 @@
   box-shadow: 0 24px 60px rgba(14, 55, 79, 0.18);
   border: 1px solid var(--border);
   position: relative;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+}
+
+.feat-mockup:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 32px 72px rgba(14, 55, 79, 0.24);
+}
+
+/* Scanline speeds up on mockup hover */
+.feat-mockup--scanline:hover::after {
+  animation-duration: 2s;
 }
 
 .feat-mockup-top {
@@ -158,8 +178,15 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 0;
+  padding: 10px 4px;
   border-bottom: 1px solid var(--border);
+  border-radius: 6px;
+  transition: background 0.25s ease, padding-left 0.25s ease;
+}
+
+.ind-row:hover {
+  background: rgba(1, 113, 123, 0.08);
+  padding-left: 10px;
 }
 
 .ind-row:last-child {
@@ -228,6 +255,20 @@
   font-size: 10px;
   font-weight: 700;
   color: white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: default;
+}
+
+@keyframes riskCellPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+}
+
+.risk-cell:hover {
+  animation: riskCellPulse 0.6s ease;
+  box-shadow: 0 0 12px rgba(1, 113, 123, 0.3);
+  z-index: 2;
+  position: relative;
 }
 
 .rc-low { background: rgba(40, 202, 65, 0.7); }
@@ -269,6 +310,17 @@
   box-shadow: 0 24px 60px rgba(14, 55, 79, 0.2);
   position: relative;
   overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+}
+
+.report-card:hover {
+  transform: perspective(800px) rotateX(2deg) rotateY(-2deg) translateY(-4px);
+  box-shadow: 0 32px 72px rgba(14, 55, 79, 0.28);
+}
+
+/* Scanline speeds up on report card hover */
+.report-card:hover::after {
+  animation-duration: 2s;
 }
 
 .report-card-header {
