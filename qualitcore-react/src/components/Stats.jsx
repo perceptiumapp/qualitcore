@@ -5,7 +5,7 @@ const statsData = [
   { target: 96, suffix: ',7%', prefix: '', desc: 'Conformidade ONA — auditoria fev/2025' },
   { target: 18, suffix: '+', prefix: '', desc: 'Módulos integrados em uma plataforma' },
   { target: 78, suffix: '+', prefix: '', desc: 'Contratos ativos gerenciados' },
-  { target: 0, suffix: 'h', prefix: '', desc: 'Para gerar apresentacao executiva completa' },
+  { target: 0, suffix: 'h', prefix: '', desc: 'Para gerar apresentação executiva completa' },
 ]
 
 function animateCount(el, target, suffix = '', prefix = '') {
@@ -55,7 +55,7 @@ export default function Stats() {
       <div className="stats-bg-animated" />
       <div className="stats-content">
         <div className="section-label" style={{ color: 'var(--teal-light)' }}>
-          QualitCore em Numeros
+          QualitCore em Números
         </div>
         <h2 className="section-title" style={{ color: 'white' }}>
           Resultados reais,

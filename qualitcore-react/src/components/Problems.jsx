@@ -2,12 +2,12 @@ import { useEffect, useRef } from 'react'
 import './Problems.css'
 
 const problems = [
-  { icon: '\u{1F4C2}', title: 'Dados fragmentados', desc: 'Incidentes no e-mail, riscos na planilha, CAPA no Word, indicadores em outro sistema. Ninguem enxerga o todo.' },
-  { icon: '\u{1F517}', title: 'Sem rastreabilidade', desc: 'Impossível conectar um incidente a sua causa raiz, ao plano de ação, a evidência e ao indicador de resultado.' },
-  { icon: '\u23F1', title: 'Auditoria manual', desc: 'Preparacao para ONA exige semanas de consolidacao manual de evidências que deveriam estar a um clique.' },
-  { icon: '\u{1F4CA}', title: 'Relatorios que levam horas', desc: 'Gestores perdem tempo montando apresentações mensais ao inves de agir com base nos dados ja disponiveis.' },
-  { icon: '\u{1F465}', title: 'Subnotificacao cultural', desc: 'Sistemas complexos inibem a notificação. Quem deveria registrar incidentes desiste por dificuldade operacional.' },
-  { icon: '\u{1F512}', title: 'Risco de nao conformidade', desc: 'Sem controle centralizado, o hospital fica vulneravel a falhas de LGPD, ONA e regulamentacoes de segurança.' },
+  { icon: '\u{1F4C2}', title: 'Dados fragmentados', desc: 'Incidentes no e-mail, riscos na planilha, CAPA no Word, indicadores em outro sistema. Ninguém enxerga o todo.' },
+  { icon: '\u{1F517}', title: 'Sem rastreabilidade', desc: 'Impossível conectar um incidente à sua causa raiz, ao plano de ação, à evidência e ao indicador de resultado.' },
+  { icon: '\u23F1', title: 'Auditoria manual', desc: 'Preparação para ONA exige semanas de consolidação manual de evidências que deveriam estar a um clique.' },
+  { icon: '\u{1F4CA}', title: 'Relatórios que levam horas', desc: 'Gestores perdem tempo montando apresentações mensais ao invés de agir com base nos dados já disponíveis.' },
+  { icon: '\u{1F465}', title: 'Subnotificação cultural', desc: 'Sistemas complexos inibem a notificação. Quem deveria registrar incidentes desiste por dificuldade operacional.' },
+  { icon: '\u{1F512}', title: 'Risco de não conformidade', desc: 'Sem controle centralizado, o hospital fica vulnerável a falhas de LGPD, ONA e regulamentações de segurança.' },
 ]
 
 export default function Problems() {
@@ -40,7 +40,7 @@ export default function Problems() {
         O Problema
       </div>
       <h2 className="section-title" style={{ color: 'white' }}>
-        O hospital moderno nao cabe
+        O hospital moderno não cabe
         <br />
         mais em planilhas e e-mails.
       </h2>

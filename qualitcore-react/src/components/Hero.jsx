@@ -8,16 +8,16 @@ function Hero() {
       <div className="hero-content">
         <div className="hero-badge">Plataforma de Gestão da Qualidade &middot; ONA Nível 3</div>
         <h1 className="hero-title">
-          Gestão de qualidade
+          Gestão da qualidade
           <span className="accent line2">hospitalar integrada,</span>
-          do incidente a evidência.
+          do incidente à evidência.
         </h1>
         <p className="hero-desc">
-          QualitCore e a plataforma enterprise que centraliza incidentes, CAPA, riscos, indicadores, documentos, ouvidoria, reuniões e apresentações executivas em um unico sistema rastreável e auditável.
+          QualitCore é a plataforma enterprise que centraliza incidentes, CAPA, riscos, indicadores, documentos, ouvidoria, reuniões e apresentações executivas em um único sistema rastreável e auditável.
         </p>
         <div className="hero-actions">
-          <a href="#cta" className="btn-primary btn-large">Ver demonstração &rarr;</a>
-          <a href="#modules" className="btn-secondary">Explorar módulos</a>
+          <a href="#cta" className="btn-primary btn-large">Solicitar demonstração &rarr;</a>
+          <a href="#modules" className="btn-secondary">Conhecer os módulos</a>
         </div>
         <div className="hero-stats">
           <div>
@@ -80,22 +80,22 @@ function Hero() {
             <div className="screen-card">
               <div className="scard-label">Incidentes Abertos</div>
               <div className="scard-value warn">14</div>
-              <div className="scard-delta down">&darr; 3 vs mes anterior</div>
+              <div className="scard-delta down">&darr; 3 vs mês anterior</div>
             </div>
             <div className="screen-card">
-              <div className="scard-label">CAPA Concluidas</div>
+              <div className="scard-label">CAPA Concluídas</div>
               <div className="scard-value good">87%</div>
-              <div className="scard-delta up">&uarr; 12% este mes</div>
+              <div className="scard-delta up">&uarr; 12% este mês</div>
             </div>
             <div className="screen-card">
-              <div className="scard-label">Riscos Criticos</div>
+              <div className="scard-label">Riscos Críticos</div>
               <div className="scard-value danger">3</div>
               <div className="scard-delta down">&darr; 1 tratado hoje</div>
             </div>
             <div className="screen-card">
               <div className="scard-label">ONA Score</div>
               <div className="scard-value good">96,7%</div>
-              <div className="scard-delta up">&uarr; Nível 3 mantido</div>
+              <div className="scard-delta up">&uarr; Nível 3 vigente</div>
             </div>
           </div>
 
@@ -117,7 +117,7 @@ function Hero() {
               <span className="sbar-pct">91%</span>
             </div>
             <div className="sbar-row">
-              <span className="sbar-name">Farmacia</span>
+              <span className="sbar-name">Farmácia</span>
               <div className="sbar-track">
                 <div className="sbar-fill" style={{ width: '84%' }}></div>
               </div>
@@ -141,23 +141,23 @@ function Hero() {
 
           <div className="screen-incidents">
             <div className="sinc-header">
-              <div className="sinc-title">Ultimas Notificações</div>
+              <div className="sinc-title">Últimas Notificações</div>
               <div className="sinc-badge">LIVE</div>
             </div>
             <div className="sinc-row">
               <div className="sinc-dot high"></div>
-              <div className="sinc-text">Evento sentinela — UTI Adult.</div>
+              <div className="sinc-text">Evento sentinela — UTI Adulto</div>
               <div className="sinc-status open">Aberto</div>
             </div>
             <div className="sinc-row">
               <div className="sinc-dot med"></div>
-              <div className="sinc-text">Quase falha — Farmacia</div>
+              <div className="sinc-text">Near miss — Farmácia</div>
               <div className="sinc-status prog">Em triagem</div>
             </div>
             <div className="sinc-row">
               <div className="sinc-dot low"></div>
-              <div className="sinc-text">Melhoria processo — CME</div>
-              <div className="sinc-status done">Concluido</div>
+              <div className="sinc-text">Melhoria de processo — CME</div>
+              <div className="sinc-status done">Concluído</div>
             </div>
           </div>
         </div>
@@ -165,7 +165,7 @@ function Hero() {
         <div className="hero-float-badge badge-1">
           <div className="badge-icon green">&#x2705;</div>
           <div>
-            <div>RCA concluida</div>
+            <div>RCA concluída</div>
             <div style={{ fontSize: '10px', color: 'var(--gray-mid)', fontWeight: 400 }}>
               CAPA gerada automaticamente
             </div>

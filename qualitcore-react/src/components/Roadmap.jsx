@@ -12,10 +12,10 @@ const waves = [
     modules: [
       'Notificações e Incidentes',
       'Investigação e Causa Raiz',
-      'Plano de Acao / CAPA',
+      'Plano de Ação / CAPA',
       'Gestão de Riscos',
       'Indicadores e Dashboards',
-      'Cockpit Executivo basico',
+      'Cockpit Executivo básico',
       'Governança e Cadastro Mestre',
       'Segurança e RBAC',
     ],
@@ -28,7 +28,7 @@ const waves = [
     modules: [
       'Documentos e Controle Documental',
       'Treinamentos e Capacitação',
-      'Comissões e Reunioes',
+      'Comissões e Reuniões',
       'SAC / Ouvidoria 360°',
       'Auditorias e ONA',
       'Privacidade e LGPD',
@@ -39,7 +39,7 @@ const waves = [
   {
     headerClass: 'wave3',
     label: 'Onda 3 · 181–365 dias',
-    name: 'Inteligencia Total',
+    name: 'Inteligência Total',
     timeline: 'Enterprise: IA e integração total',
     modules: [
       'Integração Tasy / HIS Oracle',
@@ -121,12 +121,12 @@ export default function Roadmap() {
     <section id="roadmap" className="roadmap-section">
       <div className="section-label">Roadmap de Implantação</div>
       <h2 className="section-title">
-        Tres ondas de entrega.
+        Três ondas de entrega.
         <br />
         Valor desde o dia um.
       </h2>
       <p className="section-desc">
-        Estrategia modular que garante retorno rapido sem comprometer a visao de plataforma completa.
+        Estratégia modular que garante retorno rápido sem comprometer a visão de plataforma completa.
       </p>
       <div className="waves-container">
         {/* Vertical timeline line (mobile) */}
